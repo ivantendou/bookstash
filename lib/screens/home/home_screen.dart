@@ -1,4 +1,4 @@
-import 'package:bookstash/utils/constants/text_style_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

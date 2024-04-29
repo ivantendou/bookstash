@@ -5,6 +5,11 @@ class TextStyleConstant {
     fontFamily: 'Open Sans',
   );
 
+  static final TextStyle title = _baseOpenSans.copyWith(
+    fontSize: 36,
+    fontWeight: FontWeight.w800,
+  );
+
   static final TextStyle heading1 = _baseOpenSans.copyWith(
     fontSize: 32,
     fontWeight: FontWeight.w800,

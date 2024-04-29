@@ -1,4 +1,6 @@
 import 'package:bookstash/screens/home/home_screen.dart';
+import 'package:bookstash/screens/splash_screen.dart';
+import 'package:bookstash/utils/constants/route_paths_constant.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,8 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
-          fontFamily: 'Open Sans'),
-      home: const HomeScreen(),
+          fontFamily: 'Open Sans',),
+      routes: {
+        RoutePaths.splash: (context) => const SplashScreen(),
+        RoutePaths.home: (context) => const HomeScreen(),
+      },
     );
   }
 }
