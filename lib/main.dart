@@ -1,4 +1,5 @@
-import 'package:bookstash/screens/home/home_screen.dart';
+import 'package:bookstash/screens/root/root_screen.dart';
+import 'package:bookstash/screens/search/search_screen.dart';
 import 'package:bookstash/screens/splash_screen.dart';
 import 'package:bookstash/utils/constants/route_paths_constant.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          fontFamily: 'Open Sans',),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+        fontFamily: 'Open Sans',
+      ),
       routes: {
         RoutePaths.splash: (context) => const SplashScreen(),
-        RoutePaths.home: (context) => const HomeScreen(),
+        RoutePaths.root: (context) => const RootScreen(),
+        RoutePaths.search: (context) => const SearchScreen(),
       },
     );
   }

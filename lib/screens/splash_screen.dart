@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:bookstash/utils/constants/colors_constant.dart';
 import 'package:bookstash/utils/constants/route_paths_constant.dart';
 import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, RoutePaths.home),
+      () => Navigator.pushReplacementNamed(context, RoutePaths.root),
     );
   }
 
@@ -39,14 +38,11 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Text(
               'Bookstash',
-              style: TextStyleConstant.title.copyWith(
-                color: ColorConstant.tealColor,
-              ),
+              style: TextStyleConstant.title,
             ),
             Text(
               'The world of books in your pocket',
               style: TextStyleConstant.body.copyWith(
-                color: ColorConstant.tealColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
