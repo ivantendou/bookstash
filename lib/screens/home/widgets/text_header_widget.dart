@@ -1,8 +1,8 @@
 import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
-class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({super.key, required this.headerName});
+class TextHeaderWidget extends StatelessWidget {
+  const TextHeaderWidget({super.key, required this.headerName});
 
   final String headerName;
 

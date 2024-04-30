@@ -39,7 +39,6 @@ class CategoryCardWidget extends StatelessWidget {
                     children: [
                       Icon(
                         category.icon,
-                        color: ColorConstant.tosca,
                       ),
                       const SizedBox(
                         width: 8,

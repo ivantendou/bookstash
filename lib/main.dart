@@ -1,6 +1,7 @@
 import 'package:bookstash/screens/root/root_screen.dart';
 import 'package:bookstash/screens/search/search_screen.dart';
 import 'package:bookstash/screens/splash_screen.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
 import 'package:bookstash/utils/constants/route_paths_constant.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         fontFamily: 'Open Sans',
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: ColorConstant.tosca,
+          selectionHandleColor: ColorConstant.tosca,
+        ),
+        iconTheme: IconThemeData(
+          color: ColorConstant.tosca,
+        ),
       ),
       routes: {
         RoutePaths.splash: (context) => const SplashScreen(),

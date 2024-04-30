@@ -1,6 +1,6 @@
 import 'package:bookstash/model/category_model.dart';
 import 'package:flutter/material.dart';
-import 'package:bookstash/screens/home/widgets/home_widgets_barrel.dart';
+import 'package:bookstash/screens/home/widgets/index.dart';
 
 List<Map<String, String>> books = [
   {
@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              const HeaderWidget(headerName: 'Latest Book'),
+              const TextHeaderWidget(headerName: 'Latest Book'),
               const SizedBox(
                 height: 16,
               ),
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              const HeaderWidget(headerName: 'Categories'),
+              const TextHeaderWidget(headerName: 'Categories'),
               CategoryCardWidget(categories: categories),
             ],
           ),
