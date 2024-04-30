@@ -1,6 +1,6 @@
 import 'package:bookstash/screens/bookmark/bookmark_screen.dart';
 import 'package:bookstash/screens/home/home_screen.dart';
-import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/constants/colors_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 

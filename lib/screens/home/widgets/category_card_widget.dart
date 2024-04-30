@@ -1,6 +1,7 @@
+import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/model/category_model.dart';
-import 'package:bookstash/utils/constants/colors_constant.dart';
-import 'package:bookstash/utils/constants/text_styles_constant.dart';
+import 'package:bookstash/constants/colors_constant.dart';
+import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCardWidget extends StatelessWidget {
@@ -54,7 +55,13 @@ class CategoryCardWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RoutePaths.categoryBooks,
+                    arguments: category.name,
+                  );
+                },
               ),
             )
             .toList(),

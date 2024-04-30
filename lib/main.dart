@@ -1,8 +1,9 @@
+import 'package:bookstash/screens/category_books/category_books_screen.dart';
 import 'package:bookstash/screens/root/root_screen.dart';
 import 'package:bookstash/screens/search/search_screen.dart';
 import 'package:bookstash/screens/splash_screen.dart';
-import 'package:bookstash/utils/constants/colors_constant.dart';
-import 'package:bookstash/utils/constants/route_paths_constant.dart';
+import 'package:bookstash/constants/colors_constant.dart';
+import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,11 +29,27 @@ class MyApp extends StatelessWidget {
         iconTheme: IconThemeData(
           color: ColorConstant.tosca,
         ),
+        appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(
+            color: ColorConstant.teal,
+          ),
+        ),
       ),
       routes: {
         RoutePaths.splash: (context) => const SplashScreen(),
         RoutePaths.root: (context) => const RootScreen(),
         RoutePaths.search: (context) => const SearchScreen(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == RoutePaths.categoryBooks) {
+          final args = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (context) => CategoryBooksScreen(
+              categoryName: args,
+            ),
+          );
+        }
+        return null;
       },
     );
   }

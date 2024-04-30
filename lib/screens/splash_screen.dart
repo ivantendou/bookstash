@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:bookstash/utils/constants/route_paths_constant.dart';
-import 'package:bookstash/utils/constants/text_styles_constant.dart';
+import 'package:bookstash/constants/route_paths_constant.dart';
+import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

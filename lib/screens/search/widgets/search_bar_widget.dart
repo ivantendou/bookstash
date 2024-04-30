@@ -1,5 +1,5 @@
-import 'package:bookstash/utils/constants/colors_constant.dart';
-import 'package:bookstash/utils/constants/text_styles_constant.dart';
+import 'package:bookstash/constants/colors_constant.dart';
+import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget {
@@ -10,13 +10,6 @@ class SearchBarWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const Icon(
-          Icons.arrow_back_outlined,
-          size: 30,
-        ),
-        const SizedBox(
-          width: 20,
-        ),
         Expanded(
           child: TextFormField(
             style: TextStyleConstant.buttonLabel.copyWith(
