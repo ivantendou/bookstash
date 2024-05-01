@@ -37,16 +37,15 @@ class CategoryBooksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorConstant.teal,
         title: Text(
           '$categoryName Books',
           style: TextStyleConstant.heading1.copyWith(
-            color: ColorConstant.sageGreen,
+            color: ColorConstant.teal,
           ),
         ),
         centerTitle: true,
         iconTheme: IconThemeData(
-          color: ColorConstant.sageGreen,
+          color: ColorConstant.teal,
           size: 30,
         ),
         leading: IconButton(
@@ -59,15 +58,14 @@ class CategoryBooksScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: books.length,
         shrinkWrap: true,
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         itemBuilder: (context, index) {
           final item = books[index];
           return Container(
-            height: 150,
+            height: 120,
             margin: const EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-              color: ColorConstant.sageGreen,
-              borderRadius: const BorderRadius.all(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
                 Radius.circular(10),
               ),
             ),
@@ -78,8 +76,8 @@ class CategoryBooksScreen extends StatelessWidget {
                   width: 16,
                 ),
                 Container(
-                  height: 120,
-                  width: 100,
+                  height: 100,
+                  width: 80,
                   decoration: BoxDecoration(
                     color: ColorConstant.teal,
                     borderRadius: const BorderRadius.all(
@@ -100,21 +98,23 @@ class CategoryBooksScreen extends StatelessWidget {
                         item['title']!,
                         maxLines: 2,
                         style: TextStyleConstant.heading3.copyWith(
-                          fontSize: 18,
+                          fontSize: 16,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ),
                     const SizedBox(
-                      height: 16,
+                      height: 8,
                     ),
-                    Text(
-                      item['author']!,
-                      maxLines: 2,
-                      style: TextStyleConstant.body.copyWith(
-                        fontWeight: FontWeight.w400,
-                        overflow: TextOverflow.ellipsis,
-                        fontSize: 16,
+                    SizedBox(
+                      width: 200,
+                      child: Text(
+                        item['author']!,
+                        style: TextStyleConstant.body.copyWith(
+                          fontWeight: FontWeight.w400,
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 14,
+                        ),
                       ),
                     )
                   ],

@@ -27,7 +27,7 @@ class SearchBarWidget extends StatelessWidget {
               filled: true,
               floatingLabelBehavior: FloatingLabelBehavior.never,
               label: Text(
-                'Search book and author',
+                'Search book & author',
                 style: TextStyleConstant.buttonLabel.copyWith(
                   color: ColorConstant.tosca,
                   fontSize: 18,
@@ -37,7 +37,7 @@ class SearchBarWidget extends StatelessWidget {
                 vertical: 15,
                 horizontal: 20,
               ),
-              hintText: 'Search book and author',
+              hintText: 'Search book & author',
               hintStyle: TextStyleConstant.buttonLabel.copyWith(
                 color: ColorConstant.tosca,
                 fontSize: 18,
@@ -47,7 +47,7 @@ class SearchBarWidget extends StatelessWidget {
                 // onPressed: _controller.clear,
                 icon: Icon(
                   Icons.clear,
-                  color: ColorConstant.tosca,
+                  color: ColorConstant.teal,
                   size: 30,
                 ),
               ),

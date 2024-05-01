@@ -1,4 +1,4 @@
-import 'package:bookstash/screens/search/widgets/search_bar_widget.dart';
+import 'package:bookstash/view/search/widgets/search_bar_widget.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
@@ -43,13 +43,14 @@ class _SearchScreenState extends State<SearchScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 90,
+          scrolledUnderElevation: 0,
+          toolbarHeight: 80,
           title: const SearchBarWidget(),
-          backgroundColor: ColorConstant.teal,
           iconTheme: IconThemeData(
-            color: ColorConstant.sageGreen,
+            color: ColorConstant.teal,
             size: 30,
           ),
+          backgroundColor: Colors.white70,
           leading: Padding(
             padding: const EdgeInsets.only(left: 10, top: 15, bottom: 15),
             child: IconButton(
@@ -63,15 +64,14 @@ class _SearchScreenState extends State<SearchScreen> {
         body: ListView.builder(
           itemCount: books.length,
           shrinkWrap: true,
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           itemBuilder: (context, index) {
             final item = books[index];
             return Container(
-              height: 150,
+              height: 120,
               margin: const EdgeInsets.symmetric(vertical: 10),
-              decoration: BoxDecoration(
-                color: ColorConstant.sageGreen,
-                borderRadius: const BorderRadius.all(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
                   Radius.circular(10),
                 ),
               ),
@@ -82,8 +82,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     width: 16,
                   ),
                   Container(
-                    height: 120,
-                    width: 100,
+                    height: 100,
+                    width: 80,
                     decoration: BoxDecoration(
                       color: ColorConstant.teal,
                       borderRadius: const BorderRadius.all(
@@ -104,21 +104,23 @@ class _SearchScreenState extends State<SearchScreen> {
                           item['title']!,
                           maxLines: 2,
                           style: TextStyleConstant.heading3.copyWith(
-                            fontSize: 18,
+                            fontSize: 16,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ),
                       const SizedBox(
-                        height: 16,
+                        height: 8,
                       ),
-                      Text(
-                        item['author']!,
-                        maxLines: 2,
-                        style: TextStyleConstant.body.copyWith(
-                          fontWeight: FontWeight.w400,
-                          overflow: TextOverflow.ellipsis,
-                          fontSize: 16,
+                      SizedBox(
+                        width: 200,
+                        child: Text(
+                          item['author']!,
+                          style: TextStyleConstant.body.copyWith(
+                            fontWeight: FontWeight.w400,
+                            overflow: TextOverflow.ellipsis,
+                            fontSize: 14,
+                          ),
                         ),
                       )
                     ],

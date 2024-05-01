@@ -1,11 +1,12 @@
-import 'package:bookstash/screens/category_books/category_books_screen.dart';
-import 'package:bookstash/screens/detail/detail_screen.dart';
-import 'package:bookstash/screens/root/root_screen.dart';
-import 'package:bookstash/screens/search/search_screen.dart';
-import 'package:bookstash/screens/splash_screen.dart';
+import 'package:bookstash/view/category_books/category_books_screen.dart';
+import 'package:bookstash/view/detail/detail_screen.dart';
+import 'package:bookstash/view/root/root_screen.dart';
+import 'package:bookstash/view/search/search_screen.dart';
+import 'package:bookstash/view/splash_screen.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: ColorConstant.teal,
+        )),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         fontFamily: 'Open Sans',
@@ -29,11 +34,6 @@ class MyApp extends StatelessWidget {
         ),
         iconTheme: IconThemeData(
           color: ColorConstant.tosca,
-        ),
-        appBarTheme: AppBarTheme(
-          iconTheme: IconThemeData(
-            color: ColorConstant.teal,
-          ),
         ),
       ),
       routes: {

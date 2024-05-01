@@ -1,5 +1,5 @@
-import 'package:bookstash/screens/bookmark/bookmark_screen.dart';
-import 'package:bookstash/screens/home/home_screen.dart';
+import 'package:bookstash/view/bookmark/bookmark_screen.dart';
+import 'package:bookstash/view/home/home_screen.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -27,11 +27,11 @@ class _RootScreenState extends State<RootScreen> {
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: ColorConstant.sageGreen),
+              top: BorderSide(color: ColorConstant.sageGreen, ),
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: GNav(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               color: ColorConstant.teal,

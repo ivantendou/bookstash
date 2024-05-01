@@ -1,6 +1,6 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
-import 'package:bookstash/screens/detail/widgets/book_information_card.dart';
+import 'package:bookstash/view/detail/widgets/book_information_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailScreen extends StatelessWidget {
@@ -10,16 +10,16 @@ class BookDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: Text(
           'Book Detail',
           style: TextStyleConstant.heading1.copyWith(
-            color: ColorConstant.sageGreen,
+            color: ColorConstant.teal,
           ),
         ),
         centerTitle: true,
-        backgroundColor: ColorConstant.teal,
         iconTheme: IconThemeData(
-          color: ColorConstant.sageGreen,
+          color: ColorConstant.teal,
           size: 30,
         ),
         leading: IconButton(
@@ -50,8 +50,8 @@ class BookDetailScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Container(
-                  width: 200,
-                  height: 240,
+                  width: 160,
+                  height: 220,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: ColorConstant.tosca,
@@ -76,7 +76,6 @@ class BookDetailScreen extends StatelessWidget {
                   textAlign: TextAlign.justify,
                   style: TextStyleConstant.body.copyWith(
                     fontSize: 16,
-                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
