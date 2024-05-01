@@ -1,4 +1,5 @@
 import 'package:bookstash/constants/colors_constant.dart';
+import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
@@ -15,41 +16,49 @@ class BookCardWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       width: 160,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(15),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            RoutePaths.detail,
+          );
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(15),
+                ),
+                color: ColorConstant.teal,
               ),
-              color: ColorConstant.teal,
+              height: 200,
             ),
-            height: 200,
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            item['title']!,
-            style: TextStyleConstant.body.copyWith(
-              fontWeight: FontWeight.w700,
-              overflow: TextOverflow.ellipsis,
-              fontSize: 16,
+            const SizedBox(
+              height: 4,
             ),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            item['author']!,
-            style: TextStyleConstant.body.copyWith(
-              fontWeight: FontWeight.w400,
-              overflow: TextOverflow.ellipsis,
-              fontSize: 14,
+            Text(
+              item['title']!,
+              style: TextStyleConstant.body.copyWith(
+                fontWeight: FontWeight.w700,
+                overflow: TextOverflow.ellipsis,
+                fontSize: 16,
+              ),
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 4,
+            ),
+            Text(
+              item['author']!,
+              style: TextStyleConstant.body.copyWith(
+                fontWeight: FontWeight.w400,
+                overflow: TextOverflow.ellipsis,
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

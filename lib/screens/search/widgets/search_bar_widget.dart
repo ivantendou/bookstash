@@ -34,7 +34,7 @@ class SearchBarWidget extends StatelessWidget {
                 ),
               ),
               contentPadding: const EdgeInsets.symmetric(
-                vertical: 20,
+                vertical: 15,
                 horizontal: 20,
               ),
               hintText: 'Search book and author',

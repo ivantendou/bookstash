@@ -3,4 +3,5 @@ class RoutePaths {
   static const String root = '/root';
   static const String search = '/search';
   static const String categoryBooks = '/category_books';
+  static const String detail = '/detail';
 }

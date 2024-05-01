@@ -38,11 +38,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 90,
+          title: const HomeSearchBarWidget(),
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HomeSearchBarWidget(),
               const SizedBox(
                 height: 16,
               ),
