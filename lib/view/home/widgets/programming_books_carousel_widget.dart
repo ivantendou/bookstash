@@ -1,0 +1,57 @@
+import 'package:bookstash/view/home/widgets/book_card_shimmer_widget.dart';
+import 'package:bookstash/view/home/widgets/book_card_widget.dart';
+import 'package:bookstash/view_model/home_view_model.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
+
+class ProgrammingBooksCarouselWidget extends StatelessWidget {
+  const ProgrammingBooksCarouselWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<HomeViewModel>(
+      builder: (context, viewModel, child) => SizedBox(
+        height: 255,
+        child: viewModel.isLoading
+            ? Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  itemBuilder: (context, index) =>
+                      const BookCardShimmerWidget(),
+                ),
+              )
+            : viewModel.isError
+                ? Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 10,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      itemBuilder: (context, index) =>
+                          const BookCardShimmerWidget(),
+                    ),
+                  )
+                : ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: viewModel.programmingBooksList.length,
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    itemBuilder: (context, index) {
+                      final book = viewModel.programmingBooksList[index];
+                      return BookCardWidget(
+                        title: book.volumeInfo?.title,
+                        author: book.volumeInfo?.authors[0],
+                        imageUrl:
+                            book.volumeInfo?.imageLinks?.thumbnail?.toString(),
+                      );
+                    },
+                  ),
+      ),
+    );
+  }
+}

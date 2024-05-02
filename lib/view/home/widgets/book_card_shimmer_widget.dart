@@ -32,7 +32,7 @@ class BookCardShimmerWidget extends StatelessWidget {
               height: 16,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(15),
+                  Radius.circular(10),
                 ),
                 color: Colors.white,
               ),
@@ -42,10 +42,10 @@ class BookCardShimmerWidget extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              height: 12,
+              height: 14,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(15),
+                  Radius.circular(10),
                 ),
                 color: Colors.white,
               ),

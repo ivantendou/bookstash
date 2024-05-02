@@ -5,17 +5,17 @@ import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCardWidget extends StatelessWidget {
+  final List<Category> categories;
+
   const CategoryCardWidget({
     super.key,
     required this.categories,
   });
 
-  final List<Category> categories;
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
+      height: 120,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -35,16 +35,13 @@ class CategoryCardWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: ColorConstant.sageGreen,
-                    ),
-                    padding: const EdgeInsets.all(10.0),
-                    child: Icon(
-                      category.icon,
-                      size: 18,
-                      color: ColorConstant.tosca,
+                  ClipOval(
+                    clipBehavior: Clip.hardEdge,
+                    child: Image.asset(
+                      'assets/images/fantasy.jpg',
+                      fit: BoxFit.cover,
+                      width: 60,
+                      height: 60,
                     ),
                   ),
                   const SizedBox(height: 8.0),
@@ -53,10 +50,11 @@ class CategoryCardWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     style: TextStyleConstant.buttonLabel.copyWith(
-                        fontSize: 14,
-                        color: ColorConstant.tosca,
-                        fontWeight: FontWeight.w700,
-                        overflow: TextOverflow.clip),
+                      fontSize: 14,
+                      color: ColorConstant.teal,
+                      fontWeight: FontWeight.w400,
+                      overflow: TextOverflow.clip,
+                    ),
                   ),
                 ],
               ),

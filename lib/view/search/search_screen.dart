@@ -44,7 +44,7 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0,
-          toolbarHeight: 80,
+          toolbarHeight: 70,
           title: const SearchBarWidget(),
           iconTheme: IconThemeData(
             color: ColorConstant.teal,

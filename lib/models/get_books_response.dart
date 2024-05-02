@@ -308,7 +308,7 @@ class VolumeInfo {
   String? title;
   List<String> authors;
   String? publisher;
-  DateTime publishedDate;
+  DateTime? publishedDate;
   String? description;
   List<IndustryIdentifier> industryIdentifiers;
   ReadingModes? readingModes;
@@ -349,13 +349,22 @@ class VolumeInfo {
     this.subtitle,
   });
 
+  static DateTime? tryParseDateTime(String dateString) {
+    try {
+      return DateTime.parse(dateString);
+    } catch (error) {
+      return null; 
+    }
+  }
+
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
+    
         title: json["title"],
         authors: json["authors"] == null
             ? []
             : List<String>.from(json["authors"].map((x) => x)),
         publisher: json["publisher"],
-        publishedDate: DateTime.parse(json["publishedDate"]),
+        publishedDate: tryParseDateTime(json["publishedDate"]),
         description: json["description"],
         industryIdentifiers: json["industryIdentifiers"] == null
             ? []
@@ -391,7 +400,7 @@ class VolumeInfo {
         "authors": List<dynamic>.from(authors.map((x) => x)),
         "publisher": publisher,
         "publishedDate":
-            "${publishedDate.year.toString().padLeft(4, '0')}-${publishedDate.month.toString().padLeft(2, '0')}-${publishedDate.day.toString().padLeft(2, '0')}",
+            "${publishedDate?.year.toString().padLeft(4, '0')}-${publishedDate?.month.toString().padLeft(2, '0')}-${publishedDate?.day.toString().padLeft(2, '0')}",
         "description": description,
         "industryIdentifiers":
             List<dynamic>.from(industryIdentifiers.map((x) => x.toJson())),
@@ -413,9 +422,23 @@ class VolumeInfo {
       };
 }
 
-enum Category { FICTION }
+enum Category {
+  BIOGRAPHY_AUTOBIOGRAPHY,
+  FICTION,
+  HISTORY,
+  COMPUTERS,
+  C_LANGUAGE,
+  MATHEMATICS,
+}
 
-final categoryValues = EnumValues({"Fiction": Category.FICTION});
+final categoryValues = EnumValues({
+  "Biography & Autobiography": Category.BIOGRAPHY_AUTOBIOGRAPHY,
+  "Fiction": Category.FICTION,
+  "History": Category.HISTORY,
+  "Computers": Category.COMPUTERS,
+  "'C' language": Category.C_LANGUAGE,
+  "Mathematics": Category.MATHEMATICS
+});
 
 class ImageLinks {
   String? smallThumbnail;
@@ -528,3 +551,5 @@ class EnumValues<T> {
     return reverseMap;
   }
 }
+
+

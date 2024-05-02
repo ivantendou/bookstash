@@ -3,16 +3,16 @@ import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class BookCardWidget extends StatelessWidget {
+  final String? title;
+  final String? author;
+  final String? imageUrl;
+
   const BookCardWidget({
     super.key,
     required this.title,
     required this.author,
     required this.imageUrl,
   });
-
-  final String? title;
-  final String? author;
-  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {

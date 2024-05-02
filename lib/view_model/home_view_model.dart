@@ -6,24 +6,75 @@ class HomeViewModel extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
+  bool _isError = false;
+  bool get isError => _isError;
+
   String? _errorMessage;
   String? get errorMovie => _errorMessage;
 
-  List<Item> _latestBooksList = [];
-  List<Item> get latestBooksList => _latestBooksList;
+  List<Item> _fictionBooksList = [];
+  List<Item> get fictionBooksList => _fictionBooksList;
 
-  void getLatestBooks() async {
+  List<Item> _historyBooksList = [];
+  List<Item> get historyBooksList => _historyBooksList;
+
+  List<Item> _programmingBooksList = [];
+  List<Item> get programmingBooksList => _programmingBooksList;
+
+  // Get Latest Fiction Books
+  void getLatestFictionBooks() async {
     _isLoading = true;
+    _isError = false;
     _errorMessage = null;
-    _latestBooksList.clear();
+    _fictionBooksList.clear();
     notifyListeners();
     try {
-      final data = await GoogleBooksService().getLatestBooks();
-      _latestBooksList = data.items;
+      final data = await GoogleBooksService().getLatestFictionBooks();
+      _fictionBooksList = data.items;
       notifyListeners();
     } catch (e) {
-      print("Error fetching latest books: $e");
       _errorMessage = e.toString();
+      _isError = true;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  // Get Latest History Books
+  void getLatestHistoryBooks() async {
+    _isLoading = true;
+    _isError = false;
+    _errorMessage = null;
+    _fictionBooksList.clear();
+    notifyListeners();
+    try {
+      final data = await GoogleBooksService().getLatestHistoryBooks();
+      _historyBooksList = data.items;
+      notifyListeners();
+    } catch (e) {
+      _errorMessage = e.toString();
+      _isError = true;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  // Get Latest Programming Books
+  void getLatestProgrammingBooks() async {
+    _isLoading = true;
+    _isError = false;
+    _errorMessage = null;
+    _fictionBooksList.clear();
+    notifyListeners();
+    try {
+      final data = await GoogleBooksService().getLatestProgrammingBooks();
+      _programmingBooksList = data.items;
+      notifyListeners();
+    } catch (e) {
+      _errorMessage = e.toString();
+      _isError = true;
     } finally {
       _isLoading = false;
       notifyListeners();

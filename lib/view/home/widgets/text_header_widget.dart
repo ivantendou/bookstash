@@ -2,9 +2,9 @@ import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class TextHeaderWidget extends StatelessWidget {
-  const TextHeaderWidget({super.key, required this.headerName});
-
   final String headerName;
+
+  const TextHeaderWidget({super.key, required this.headerName});
 
   @override
   Widget build(BuildContext context) {

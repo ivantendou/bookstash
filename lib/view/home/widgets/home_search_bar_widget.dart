@@ -12,7 +12,7 @@ class HomeSearchBarWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: GestureDetector(
         child: Container(
-          height: 60,
+          height: 50,
           decoration: BoxDecoration(
             color: ColorConstant.sageGreen,
             borderRadius: const BorderRadius.all(
