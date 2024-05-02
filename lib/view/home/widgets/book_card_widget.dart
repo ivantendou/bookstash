@@ -1,4 +1,3 @@
-import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +5,14 @@ import 'package:flutter/material.dart';
 class BookCardWidget extends StatelessWidget {
   const BookCardWidget({
     super.key,
-    required this.item,
+    required this.title,
+    required this.author,
+    required this.imageUrl,
   });
 
-  final Map<String, String> item;
+  final String? title;
+  final String? author;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +29,21 @@ class BookCardWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(15),
-                ),
-                color: ColorConstant.teal,
-              ),
+            SizedBox(
               height: 200,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  imageUrl!,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             const SizedBox(
               height: 4,
             ),
             Text(
-              item['title']!,
+              title!,
               style: TextStyleConstant.body.copyWith(
                 fontWeight: FontWeight.w700,
                 overflow: TextOverflow.ellipsis,
@@ -50,7 +54,7 @@ class BookCardWidget extends StatelessWidget {
               height: 4,
             ),
             Text(
-              item['author']!,
+              author!,
               style: TextStyleConstant.body.copyWith(
                 fontWeight: FontWeight.w400,
                 overflow: TextOverflow.ellipsis,

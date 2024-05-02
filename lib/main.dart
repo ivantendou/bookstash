@@ -5,11 +5,20 @@ import 'package:bookstash/view/search/search_screen.dart';
 import 'package:bookstash/view/splash_screen.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/route_paths_constant.dart';
+import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HomeViewModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

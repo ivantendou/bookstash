@@ -1,10 +1,13 @@
 import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
-import 'package:bookstash/model/category_model.dart';
+import 'package:bookstash/models/category_model.dart';
+import 'package:bookstash/view/home/widgets/book_card_shimmer_widget.dart';
 import 'package:bookstash/view/home/widgets/home_search_bar_widget.dart';
+import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bookstash/view/home/widgets/index.dart';
+import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 
 List<Map<String, String>> books = [
   {
@@ -42,8 +45,21 @@ List<Category> categories = [
   Category(name: "Mystery", icon: Icons.question_answer),
 ];
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<HomeViewModel>(context, listen: false).getLatestBooks();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,15 +95,35 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            SizedBox(
-              height: 255,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: books.length,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                itemBuilder: (context, index) {
-                  return BookCardWidget(item: books[index]);
-                },
+            Consumer<HomeViewModel>(
+              builder: (context, viewModel, child) => SizedBox(
+                height: 255,
+                child: viewModel.isLoading
+                    ? Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 10,
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          itemBuilder: (context, index) =>
+                              const BookCardShimmerWidget(),
+                        ),
+                      )
+                    : ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: viewModel.latestBooksList.length,
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        itemBuilder: (context, index) {
+                          final book = viewModel.latestBooksList[index];
+                          return BookCardWidget(
+                            title: book.volumeInfo?.title,
+                            author: book.volumeInfo?.authors?[0],
+                            imageUrl: book.volumeInfo?.imageLinks?.thumbnail
+                                .toString(),
+                          );
+                        },
+                      ),
               ),
             ),
             const SizedBox(
@@ -97,17 +133,17 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            SizedBox(
-              height: 255,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: books.length,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                itemBuilder: (context, index) {
-                  return BookCardWidget(item: books[index]);
-                },
-              ),
-            ),
+            // SizedBox(
+            //   height: 255,
+            //   child: ListView.builder(
+            //     scrollDirection: Axis.horizontal,
+            //     itemCount: books.length,
+            //     padding: const EdgeInsets.symmetric(horizontal: 8),
+            //     itemBuilder: (context, index) {
+            //       return BookCardWidget();
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
