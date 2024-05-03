@@ -18,21 +18,32 @@ class BookCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      width: 160,
+      width: 125,
       child: GestureDetector(
         onTap: () {
           Navigator.pushNamed(
             context,
-            RoutePaths.detail,
+            RoutePaths.bookDetail,
           );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 200,
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              height: 165,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
                 child: Image.network(
                   imageUrl!,
                   fit: BoxFit.cover,
@@ -47,7 +58,7 @@ class BookCardWidget extends StatelessWidget {
               style: TextStyleConstant.body.copyWith(
                 fontWeight: FontWeight.w700,
                 overflow: TextOverflow.ellipsis,
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
             const SizedBox(
@@ -58,7 +69,7 @@ class BookCardWidget extends StatelessWidget {
               style: TextStyleConstant.body.copyWith(
                 fontWeight: FontWeight.w400,
                 overflow: TextOverflow.ellipsis,
-                fontSize: 14,
+                fontSize: 12,
               ),
             ),
           ],

@@ -1,58 +1,74 @@
 import 'package:bookstash/constants/route_paths_constant.dart';
-import 'package:bookstash/models/category_model.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/view_model/book_category_view_model.dart';
+import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CategoryCardWidget extends StatelessWidget {
-  final List<Category> categories;
-
   const CategoryCardWidget({
     super.key,
-    required this.categories,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+    final categories =
+        Provider.of<HomeViewModel>(context, listen: false).categories;
+    return SizedBox(
+      height: 110,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         itemBuilder: (context, index) {
           final category = categories[index];
           return GestureDetector(
             onTap: () {
+              Provider.of<BookCategoryViewModel>(context, listen: false)
+                  .selectedCategory = category.name;
               Navigator.pushNamed(
                 context,
-                RoutePaths.categoryBooks,
-                arguments: category.name,
+                RoutePaths.bookCategory,
               );
             },
             child: Container(
-              width: 80,
+              width: 90,
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: Column(
                 children: [
-                  ClipOval(
-                    clipBehavior: Clip.hardEdge,
-                    child: Image.asset(
-                      'assets/images/fantasy.jpg',
-                      fit: BoxFit.cover,
-                      width: 60,
-                      height: 60,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(50)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.6),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: ClipOval(
+                      clipBehavior: Clip.hardEdge,
+                      child: Image.asset(
+                        category.imageAssets,
+                        fit: BoxFit.cover,
+                        width: 60,
+                        height: 60,
+                        cacheHeight: 60,
+                        cacheWidth: 60,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 8.0),
                   Text(
                     category.name,
                     textAlign: TextAlign.center,
-                    maxLines: 2,
                     style: TextStyleConstant.buttonLabel.copyWith(
                       fontSize: 14,
                       color: ColorConstant.teal,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       overflow: TextOverflow.clip,
                     ),
                   ),

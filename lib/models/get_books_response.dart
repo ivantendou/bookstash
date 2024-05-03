@@ -314,7 +314,6 @@ class VolumeInfo {
   ReadingModes? readingModes;
   int? pageCount;
   PrintType? printType;
-  List<Category> categories;
   MaturityRating? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -336,7 +335,6 @@ class VolumeInfo {
     this.readingModes,
     this.pageCount,
     this.printType,
-    required this.categories,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -375,10 +373,6 @@ class VolumeInfo {
             : ReadingModes.fromJson(json["readingModes"]),
         pageCount: json["pageCount"],
         printType: printTypeValues.map[json["printType"]],
-        categories: json["categories"] == null
-            ? []
-            : List<Category>.from(
-                json["categories"].map((x) => categoryValues.map[x])),
         maturityRating: maturityRatingValues.map[json["maturityRating"]],
         allowAnonLogging: json["allowAnonLogging"],
         contentVersion: json["contentVersion"],
@@ -407,8 +401,6 @@ class VolumeInfo {
         "readingModes": readingModes?.toJson(),
         "pageCount": pageCount,
         "printType": printTypeValues.reverse[printType],
-        "categories": List<dynamic>.from(
-            categories.map((x) => categoryValues.reverse[x])),
         "maturityRating": maturityRatingValues.reverse[maturityRating],
         "allowAnonLogging": allowAnonLogging,
         "contentVersion": contentVersion,
@@ -421,24 +413,6 @@ class VolumeInfo {
         "subtitle": subtitle,
       };
 }
-
-enum Category {
-  BIOGRAPHY_AUTOBIOGRAPHY,
-  FICTION,
-  HISTORY,
-  COMPUTERS,
-  C_LANGUAGE,
-  MATHEMATICS,
-}
-
-final categoryValues = EnumValues({
-  "Biography & Autobiography": Category.BIOGRAPHY_AUTOBIOGRAPHY,
-  "Fiction": Category.FICTION,
-  "History": Category.HISTORY,
-  "Computers": Category.COMPUTERS,
-  "'C' language": Category.C_LANGUAGE,
-  "Mathematics": Category.MATHEMATICS
-});
 
 class ImageLinks {
   String? smallThumbnail;

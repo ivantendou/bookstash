@@ -23,39 +23,54 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBody: true,
         body: _widgetOptions.elementAt(_selectedIndex),
+        backgroundColor: Colors.transparent,
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(color: ColorConstant.sageGreen, ),
+            color: Colors.black,
+            image: const DecorationImage(
+              image: AssetImage('assets/images/background.jpg'),
+              fit: BoxFit.cover,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(0, 3),
+              ),
+            ],
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: GNav(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              color: ColorConstant.teal,
-              activeColor: ColorConstant.tosca,
-              tabBackgroundColor: ColorConstant.sageGreen,
-              gap: 8,
-              padding: const EdgeInsets.all(16),
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: Icons.bookmark,
-                  text: 'Bookmark',
-                ),
-              ],
-              selectedIndex: _selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
-            ),
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: GNav(
+            tabBorderRadius: 10,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            color: ColorConstant.tosca,
+            activeColor: ColorConstant.teal,
+            tabBackgroundColor: Colors.transparent,
+            gap: 8,
+            padding: const EdgeInsets.all(6),
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.bookmark,
+                text: 'Bookmark',
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
           ),
         ),
       ),

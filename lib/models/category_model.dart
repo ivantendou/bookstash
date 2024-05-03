@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-
 class Category {
-  Category({required this.name, required this.icon});
+  Category({required this.name, required this.imageAssets});
   
   final String name;
-  final IconData icon;
+  final String imageAssets;
 }

@@ -12,7 +12,9 @@ class TextHeaderWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Text(
         headerName,
-        style: TextStyleConstant.heading1,
+        style: TextStyleConstant.heading1.copyWith(
+          fontSize: 18,
+        ),
       ),
     );
   }

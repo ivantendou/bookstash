@@ -16,37 +16,46 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 4),
       () => Navigator.pushReplacementNamed(context, RoutePaths.root),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/logo.png',
-              width: 200.0,
-              height: 200.0,
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Text(
-              'Bookstash',
-              style: TextStyleConstant.title,
-            ),
-            Text(
-              'The world of books in your pocket',
-              style: TextStyleConstant.body.copyWith(
-                fontWeight: FontWeight.w600,
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/background.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/logo.png',
+                width: 200.0,
+                height: 200.0,
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                'Bookstash',
+                style: TextStyleConstant.title,
+              ),
+              Text(
+                'The world of books in your pocket',
+                style: TextStyleConstant.body.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -12,7 +12,7 @@ class FictionBooksCarouselWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
       builder: (context, viewModel, child) => SizedBox(
-        height: 255,
+        height: 210,
         child: viewModel.isLoading
             ? Shimmer.fromColors(
                 baseColor: Colors.grey[300]!,

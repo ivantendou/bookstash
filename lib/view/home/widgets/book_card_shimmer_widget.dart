@@ -8,7 +8,7 @@ class BookCardShimmerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      width: 160,
+      width: 125,
       child: Shimmer.fromColors(
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!,
@@ -18,11 +18,11 @@ class BookCardShimmerWidget extends StatelessWidget {
             Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(15),
+                  Radius.circular(10),
                 ),
                 color: Colors.white,
               ),
-              height: 200,
+              height: 165,
             ),
             const SizedBox(
               height: 4,

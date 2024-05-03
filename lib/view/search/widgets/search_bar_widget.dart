@@ -22,7 +22,7 @@ class SearchBarWidget extends StatelessWidget {
                 border: const OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(15),
+                    Radius.circular(10),
                   ),
                 ),
                 fillColor: ColorConstant.sageGreen,

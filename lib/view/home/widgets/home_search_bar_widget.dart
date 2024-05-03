@@ -16,7 +16,7 @@ class HomeSearchBarWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: ColorConstant.sageGreen,
             borderRadius: const BorderRadius.all(
-              Radius.circular(15),
+              Radius.circular(10),
             ),
           ),
           child: Row(
