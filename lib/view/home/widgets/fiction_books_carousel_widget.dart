@@ -11,47 +11,50 @@ class FictionBooksCarouselWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
-      builder: (context, viewModel, child) => SizedBox(
-        height: 210,
-        child: viewModel.isLoading
-            ? Shimmer.fromColors(
-                baseColor: Colors.grey[300]!,
-                highlightColor: Colors.grey[100]!,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  itemBuilder: (context, index) =>
-                      const BookCardShimmerWidget(),
-                ),
-              )
-            : viewModel.isError
-                ? Shimmer.fromColors(
-                    baseColor: Colors.grey[300]!,
-                    highlightColor: Colors.grey[100]!,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      itemBuilder: (context, index) =>
-                          const BookCardShimmerWidget(),
-                    ),
-                  )
-                : ListView.builder(
+      builder: (context, viewModel, child) {
+        return SizedBox(
+          height: 210,
+          child: viewModel.isLoading
+              ? Shimmer.fromColors(
+                  baseColor: Colors.grey[300]!,
+                  highlightColor: Colors.grey[100]!,
+                  child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: viewModel.fictionBooksList.length,
+                    itemCount: 10,
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    itemBuilder: (context, index) {
-                      final book = viewModel.fictionBooksList[index];
-                      return BookCardWidget(
-                        title: book.volumeInfo?.title,
-                        author: book.volumeInfo?.authors[0],
-                        imageUrl:
-                            book.volumeInfo?.imageLinks?.thumbnail?.toString(),
-                      );
-                    },
+                    itemBuilder: (context, index) =>
+                        const BookCardShimmerWidget(),
                   ),
-      ),
+                )
+              : viewModel.isError
+                  ? Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        itemBuilder: (context, index) =>
+                            const BookCardShimmerWidget(),
+                      ),
+                    )
+                  : ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: viewModel.fictionBooksList.length,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      itemBuilder: (context, index) {
+                        final book = viewModel.fictionBooksList[index];
+                        return BookCardWidget(
+                          id: book.id,
+                          title: book.volumeInfo?.title,
+                          authors: book.volumeInfo?.authors.join(', '),
+                          imageUrl: book.volumeInfo?.imageLinks?.thumbnail
+                              ?.toString(),
+                        );
+                      },
+                    ),
+        );
+      },
     );
   }
 }

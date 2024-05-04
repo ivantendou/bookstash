@@ -1,16 +1,20 @@
 import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/view_model/book_detail_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BookCardWidget extends StatelessWidget {
+  final String? id;
   final String? title;
-  final String? author;
+  final String? authors;
   final String? imageUrl;
 
   const BookCardWidget({
     super.key,
+    required this.id,
     required this.title,
-    required this.author,
+    required this.authors,
     required this.imageUrl,
   });
 
@@ -21,6 +25,8 @@ class BookCardWidget extends StatelessWidget {
       width: 125,
       child: GestureDetector(
         onTap: () {
+          Provider.of<BookDetailViewModel>(context, listen: false).selectedId =
+              id;
           Navigator.pushNamed(
             context,
             RoutePaths.bookDetail,
@@ -36,7 +42,7 @@ class BookCardWidget extends StatelessWidget {
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 2,
-                    blurRadius: 5,
+                    blurRadius: 2,
                     offset: const Offset(0, 3),
                   ),
                 ],
@@ -45,7 +51,8 @@ class BookCardWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  imageUrl!,
+                  imageUrl ??
+                      'https://i0.wp.com/thinkfirstcommunication.com/wp-content/uploads/2022/05/placeholder-1-1.png?resize=1024%2C683&ssl=1',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -54,7 +61,7 @@ class BookCardWidget extends StatelessWidget {
               height: 4,
             ),
             Text(
-              title!,
+              title ?? '-',
               style: TextStyleConstant.body.copyWith(
                 fontWeight: FontWeight.w700,
                 overflow: TextOverflow.ellipsis,
@@ -65,7 +72,7 @@ class BookCardWidget extends StatelessWidget {
               height: 4,
             ),
             Text(
-              author!,
+              authors ?? '-',
               style: TextStyleConstant.body.copyWith(
                 fontWeight: FontWeight.w400,
                 overflow: TextOverflow.ellipsis,

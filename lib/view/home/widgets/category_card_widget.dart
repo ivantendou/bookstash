@@ -42,7 +42,7 @@ class CategoryCardWidget extends StatelessWidget {
                       borderRadius: const BorderRadius.all(Radius.circular(50)),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.6),
+                          color: Colors.black.withOpacity(0.5),
                           spreadRadius: 2,
                           blurRadius: 5,
                           offset: const Offset(0, 3),
@@ -67,7 +67,7 @@ class CategoryCardWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyleConstant.buttonLabel.copyWith(
                       fontSize: 14,
-                      color: ColorConstant.teal,
+                      color: ColorConstant.sageGreen,
                       fontWeight: FontWeight.w600,
                       overflow: TextOverflow.clip,
                     ),

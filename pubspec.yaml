@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  url_launcher: ^6.2.6
   flutter:
     sdk: flutter
 
@@ -39,6 +40,9 @@ dependencies:
   dio: ^5.4.3+1
   provider: ^6.1.2
   shimmer: ^3.0.0
+  html: ^0.15.4
+  infinite_scroll_pagination: ^4.0.0
+  
 
 dev_dependencies:
   flutter_test:

@@ -96,7 +96,7 @@ class HomeViewModel extends ChangeNotifier {
     Category(name: "Thriller", imageAssets: 'assets/images/thriller.jpg'),
     Category(name: "Poetry", imageAssets: 'assets/images/poetry.jpg'),
     Category(name: "History", imageAssets: 'assets/images/history.jpg'),
-    Category(name: "Dsytopian", imageAssets: 'assets/images/dystopian.jpg'),
+    Category(name: "Steampunk", imageAssets: 'assets/images/dystopian.jpg'),
     Category(name: "Self-Help", imageAssets: 'assets/images/self-help.jpg'),
     Category(name: "Finance", imageAssets: 'assets/images/finance.jpg'),
   ];

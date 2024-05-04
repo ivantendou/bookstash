@@ -44,8 +44,9 @@ class ProgrammingBooksCarouselWidget extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final book = viewModel.programmingBooksList[index];
                       return BookCardWidget(
+                        id: book.id,
                         title: book.volumeInfo?.title,
-                        author: book.volumeInfo?.authors[0],
+                        authors: book.volumeInfo?.authors.join(', '),
                         imageUrl:
                             book.volumeInfo?.imageLinks?.thumbnail?.toString(),
                       );

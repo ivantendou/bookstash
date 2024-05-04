@@ -44,13 +44,17 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0,
-          toolbarHeight: 70,
+          toolbarHeight: 80,
           title: const SearchBarWidget(),
           iconTheme: IconThemeData(
-            color: ColorConstant.teal,
+            color: ColorConstant.sageGreen,
             size: 30,
           ),
-          backgroundColor: Colors.white70,
+          backgroundColor: Colors.transparent,
+          flexibleSpace: const Image(
+            image: AssetImage('assets/images/background.jpg'),
+            fit: BoxFit.cover,
+          ),
           leading: Padding(
             padding: const EdgeInsets.only(left: 10, top: 15, bottom: 15),
             child: IconButton(

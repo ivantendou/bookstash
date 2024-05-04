@@ -44,8 +44,9 @@ class HistoryBooksCarouselWidget extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final book = viewModel.historyBooksList[index];
                       return BookCardWidget(
+                        id: book.id,
                         title: book.volumeInfo?.title,
-                        author: book.volumeInfo?.authors[0],
+                        authors: book.volumeInfo?.authors.join(', '),
                         imageUrl:
                             book.volumeInfo?.imageLinks?.thumbnail?.toString(),
                       );

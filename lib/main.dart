@@ -1,11 +1,12 @@
-import 'package:bookstash/view/category_books/book_category_screen.dart';
-import 'package:bookstash/view/detail/detail_screen.dart';
+import 'package:bookstash/view/book_category/book_category_screen.dart';
+import 'package:bookstash/view/book_detail/book_detail_screen.dart';
 import 'package:bookstash/view/root/root_screen.dart';
 import 'package:bookstash/view/search/search_screen.dart';
 import 'package:bookstash/view/splash_screen.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/view_model/book_category_view_model.dart';
+import 'package:bookstash/view_model/book_detail_view_model.dart';
 import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +18,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => HomeViewModel()),
         ChangeNotifierProvider(create: (_) => BookCategoryViewModel()),
+        ChangeNotifierProvider(create: (_) => BookDetailViewModel()),
       ],
       child: const MyApp(),
     ),
@@ -32,9 +34,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
             systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: ColorConstant.teal,
+          statusBarColor: Color(0xFF003300),
         )),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

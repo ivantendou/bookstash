@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text(
             'Bookstash',
             style: TextStyleConstant.heading1
-                .copyWith(fontSize: 28, color: ColorConstant.teal),
+                .copyWith(fontSize: 28, color: ColorConstant.sageGreen),
           ),
         ),
         body: SingleChildScrollView(
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     FictionBooksCarouselWidget(),
                     SizedBox(
-                      height: 8,
+                      height: 16,
                     ),
                     TextHeaderWidget(headerName: 'New History Books'),
                     SizedBox(
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     HistoryBooksCarouselWidget(),
                     SizedBox(
-                      height: 8,
+                      height: 16,
                     ),
                     TextHeaderWidget(headerName: 'New Programming Books'),
                     SizedBox(

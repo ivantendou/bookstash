@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/route_paths_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
@@ -38,20 +39,24 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Image.asset(
                 'assets/images/logo.png',
-                width: 200.0,
-                height: 200.0,
+                fit: BoxFit.cover,
+                width: 350.0,
+                height: 350.0,
               ),
               const SizedBox(
-                height: 20.0,
+                height: 8.0,
               ),
               Text(
                 'Bookstash',
-                style: TextStyleConstant.title,
+                style: TextStyleConstant.title.copyWith(
+                  color: ColorConstant.sageGreen,
+                ),
               ),
               Text(
                 'The world of books in your pocket',
                 style: TextStyleConstant.body.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: ColorConstant.sageGreen,
                 ),
               ),
             ],

@@ -1,12 +1,31 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/view_model/book_detail_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BookInformationCardWidget extends StatelessWidget {
-  const BookInformationCardWidget({super.key});
+  final String? title;
+  final String? authors;
+  final String? page;
+  final String? language;
+  final String? datePublished;
+  final String? readLink;
+  final String? buyLink;
+  const BookInformationCardWidget({
+    super.key,
+    required this.title,
+    required this.authors,
+    required this.page,
+    required this.language,
+    required this.datePublished,
+    required this.readLink,
+    required this.buyLink,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final bookDetailViewModelNotListening = Provider.of<BookDetailViewModel>(context, listen: false);
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -23,7 +42,7 @@ class BookInformationCardWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'The Art of War gggggggggggggggggggggggggggggggkkkkkkk',
+                      title ?? '-',
                       textAlign: TextAlign.center,
                       style: TextStyleConstant.heading2.copyWith(
                         fontWeight: FontWeight.w800,
@@ -33,7 +52,7 @@ class BookInformationCardWidget extends StatelessWidget {
                       height: 4,
                     ),
                     Text(
-                      'by Sun Tzu Ziggyzaggazadeiruweiruesurkkkkkkkkkkkkkkkkkkk',
+                      authors != null ? 'by $authors' : 'by -',
                       textAlign: TextAlign.center,
                       style: TextStyleConstant.body,
                     ),
@@ -54,7 +73,7 @@ class BookInformationCardWidget extends StatelessWidget {
                       style: TextStyleConstant.body,
                     ),
                     Text(
-                      '354',
+                      page ?? '-',
                       style: TextStyleConstant.heading3.copyWith(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
@@ -69,7 +88,7 @@ class BookInformationCardWidget extends StatelessWidget {
                       style: TextStyleConstant.body,
                     ),
                     Text(
-                      'EN',
+                      language ?? '-',
                       style: TextStyleConstant.heading3.copyWith(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
@@ -80,11 +99,11 @@ class BookInformationCardWidget extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      'Published',
+                      'Date Published',
                       style: TextStyleConstant.body,
                     ),
                     Text(
-                      '1980',
+                      datePublished ?? '-',
                       style: TextStyleConstant.heading3.copyWith(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
@@ -109,7 +128,9 @@ class BookInformationCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      bookDetailViewModelNotListening.launchURL(readLink);
+                    },
                     child: Row(
                       children: [
                         Icon(
@@ -133,7 +154,9 @@ class BookInformationCardWidget extends StatelessWidget {
                     color: ColorConstant.sageGreen,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      bookDetailViewModelNotListening.launchURL(buyLink);
+                    },
                     child: Row(
                       children: [
                         Icon(
