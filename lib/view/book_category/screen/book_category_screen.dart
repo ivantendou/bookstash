@@ -53,7 +53,7 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Provider.of<BookCategoryViewModel>(context, listen: false)
-                .clearBookDetail();
+                .clearBook();
             Navigator.pop(context);
           },
         ),
@@ -78,7 +78,7 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
                       imageUrl:
                           books.volumeInfo?.imageLinks?.thumbnail?.toString(),
                       title: books.volumeInfo?.title,
-                      authors: books.volumeInfo?.authors.join(', '),
+                      authors: books.volumeInfo?.authors?.join(', '),
                     ),
                   );
                 } else {

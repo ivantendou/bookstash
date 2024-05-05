@@ -29,6 +29,7 @@ class HorizontalBookCardWidget extends StatelessWidget {
         );
       },
       child: Container(
+        margin: const EdgeInsets.only(bottom: 15),
         height: 120,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(
@@ -36,7 +37,6 @@ class HorizontalBookCardWidget extends StatelessWidget {
           ),
           color: Colors.green[50],
         ),
-        margin: const EdgeInsets.only(bottom: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
