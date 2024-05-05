@@ -2,15 +2,7 @@ import 'package:bookstash/models/get_books_response.dart';
 import 'package:bookstash/models/service/google_books_service.dart';
 import 'package:flutter/material.dart';
 
-class BookCategoryViewModel extends ChangeNotifier {
-  String _selectedCategory = "";
-  String get selectedCategory => _selectedCategory;
-
-  set selectedCategory(String? categoryName) {
-    _selectedCategory = categoryName!;
-    notifyListeners();
-  }
-
+class BookSearchViewModel extends ChangeNotifier {
   String? _errorMessage;
   String? get errorMovie => _errorMessage;
 
@@ -23,19 +15,19 @@ class BookCategoryViewModel extends ChangeNotifier {
   int _startIndex = 0;
   int get startIndex => _startIndex;
 
-  void handleScrollEvent(double pixels, double maxScrollExtent) {
+  void handleScrollEvent(double pixels, double maxScrollExtent, String query) {
     if (pixels == maxScrollExtent && !_isLoadingMore) {
       _startIndex += 11;
-      getBooks();
+      getBooks(query);
     }
   }
 
-  void getBooks() async {
+  void getBooks(String query) async {
     _isLoadingMore = true;
     notifyListeners();
     try {
       final data = await GoogleBooksService()
-          .getBooksByCategory(selectedCategory, startIndex.toString());
+          .getBooksByQueryText(query, startIndex.toString());
       _books = _books + data.items;
       notifyListeners();
     } catch (e) {

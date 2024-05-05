@@ -47,7 +47,7 @@ class FictionBooksCarouselWidget extends StatelessWidget {
                         return BookCardWidget(
                           id: book.id,
                           title: book.volumeInfo?.title,
-                          authors: book.volumeInfo?.authors.join(', '),
+                          authors: book.volumeInfo?.authors?.join(', '),
                           imageUrl: book.volumeInfo?.imageLinks?.thumbnail
                               ?.toString(),
                         );
