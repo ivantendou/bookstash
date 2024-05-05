@@ -30,11 +30,13 @@ class HorizontalBookCardWidget extends StatelessWidget {
       },
       child: Container(
         height: 120,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
+          color: Colors.green[50],
         ),
+        margin: const EdgeInsets.only(bottom: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

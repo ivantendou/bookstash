@@ -26,9 +26,9 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Flexible(
+        Expanded(
           child: SizedBox(
-            height: 50,
+            height: 60,
             child: Form(
               key: widget.formKey,
               child: TextFormField(
@@ -74,10 +74,11 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                     ),
                   ),
                 ),
+                textAlignVertical: TextAlignVertical.center,
                 textInputAction: TextInputAction.search,
                 onChanged: (query) {
                   if (_debounce?.isActive ?? false) _debounce?.cancel();
-                  _debounce = Timer(const Duration(milliseconds: 300), () {
+                  _debounce = Timer(const Duration(milliseconds: 500), () {
                     bookSearchViewModel.clearBook();
                     bookSearchViewModel.getBooks(query);
                   });

@@ -55,7 +55,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 Provider.of<BookSearchViewModel>(context, listen: false)
-                .clearBook();
+                    .clearBook();
                 Navigator.pop(context);
               },
             ),
@@ -64,35 +64,79 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
         body: Center(
           child: Consumer<BookSearchViewModel>(
             builder: (context, viewModel, child) {
-              return ListView.builder(
-                controller: scrollController,
-                itemCount: viewModel.isLoadingMore
-                    ? viewModel.books.length + 1
-                    : viewModel.books.length,
-                shrinkWrap: true,
-                padding: const EdgeInsets.only(
-                    top: 16, left: 16, right: 16, bottom: 50),
-                itemBuilder: (context, index) {
-                  if (index < viewModel.books.length) {
-                    final books = viewModel.books[index];
-                    return Center(
-                      child: HorizontalBookCardWidget(
-                        id: books.id,
-                        imageUrl:
-                            books.volumeInfo?.imageLinks?.thumbnail?.toString(),
-                        title: books.volumeInfo?.title,
-                        authors: books.volumeInfo?.authors?.join(', '),
+              if (viewModel.isLoadingMore) {
+                return CircularProgressIndicator(
+                  color: ColorConstant.teal,
+                );
+              } else if (viewModel.books.isEmpty) {
+                if (_searchController.text.isEmpty) {
+                  return const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.search,
+                        size: 100,
+                        color: Colors.grey,
                       ),
-                    );
-                  } else {
-                    return Center(
-                      child: CircularProgressIndicator(
-                        color: ColorConstant.teal,
+                      Text(
+                        'Start searching for books',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey,
+                        ),
                       ),
-                    );
-                  }
-                },
-              );
+                    ],
+                  );
+                } else {
+                  return const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.search_off_outlined,
+                        size: 100,
+                        color: Colors.grey,
+                      ),
+                      Text(
+                        'No results found',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  );
+                }
+              } else {
+                return ListView.builder(
+                  controller: scrollController,
+                  itemCount: viewModel.isLoadingMore
+                      ? viewModel.books.length + 1
+                      : viewModel.books.length,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(
+                      top: 16, left: 16, right: 16, bottom: 50),
+                  itemBuilder: (context, index) {
+                    if (index < viewModel.books.length) {
+                      final books = viewModel.books[index];
+                      return Center(
+                        child: HorizontalBookCardWidget(
+                          id: books.id,
+                          imageUrl: books.volumeInfo?.imageLinks?.thumbnail
+                              ?.toString(),
+                          title: books.volumeInfo?.title,
+                          authors: books.volumeInfo?.authors?.join(', '),
+                        ),
+                      );
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: ColorConstant.teal,
+                        ),
+                      );
+                    }
+                  },
+                );
+              }
             },
           ),
         ),

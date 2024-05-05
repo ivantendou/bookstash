@@ -16,6 +16,7 @@ class BookSearchViewModel extends ChangeNotifier {
   int get startIndex => _startIndex;
 
   void handleScrollEvent(double pixels, double maxScrollExtent, String query) {
+    if (isLoadingMore) return;
     if (pixels == maxScrollExtent && !_isLoadingMore) {
       _startIndex += 11;
       getBooks(query);
