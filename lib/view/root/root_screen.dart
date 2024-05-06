@@ -1,4 +1,4 @@
-import 'package:bookstash/view/bookmark/bookmark_screen.dart';
+import 'package:bookstash/view/bookmark/screen/bookmark_screen.dart';
 import 'package:bookstash/view/home/screen/home_screen.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:flutter/material.dart';
