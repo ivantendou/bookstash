@@ -1,3 +1,5 @@
+import 'package:bookstash/models/book_model.dart';
+import 'package:bookstash/models/db_manager.dart';
 import 'package:bookstash/models/get_book_detail_response.dart';
 import 'package:bookstash/models/service/google_books_service.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,12 @@ import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailViewModel extends ChangeNotifier {
+  late DbManager _dbManager;
+
+  BookDetailViewModel() {
+    _dbManager = DbManager();
+  }
+
   String? _selectedId;
   String? get selectedId => _selectedId;
 
@@ -18,6 +26,9 @@ class BookDetailViewModel extends ChangeNotifier {
 
   bool _isError = false;
   bool get isError => _isError;
+
+  bool _isCurrentBookmarked = false;
+  bool get isCurrentBookmarked => _isCurrentBookmarked;
 
   String? _errorMessage;
   String? get errorMovie => _errorMessage;
@@ -37,6 +48,8 @@ class BookDetailViewModel extends ChangeNotifier {
       final data = await GoogleBooksService().getBookDetail(_selectedId);
       _bookDetail = data;
       _description = _parseHtmlString(data.volumeInfo?.description);
+      final isBookmarked = await _dbManager.isBookmarked(_bookDetail.id);
+      _isCurrentBookmarked = isBookmarked;
       notifyListeners();
     } catch (e) {
       _errorMessage = e.toString();
@@ -56,12 +69,30 @@ class BookDetailViewModel extends ChangeNotifier {
   }
 
   Future<void> launchURL(String? url) async {
-  if (url != null) {
-    await launchUrl(Uri.parse(url),mode: LaunchMode.externalApplication);
-  } else {
-    debugPrint('Could not launch the provided link: $url'); 
+    if (url != null) {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } else {
+      debugPrint('Could not launch the provided link: $url');
+    }
   }
-}
+
+  Future<void> bookmarkBook() async {
+    Book book = Book(
+      id: _bookDetail.id,
+      title: _bookDetail.volumeInfo?.title,
+      authors: _bookDetail.volumeInfo?.authors?.join(', '),
+      thumbnail: _bookDetail.volumeInfo?.imageLinks?.thumbnail,
+    );
+    await _dbManager.addBook(book);
+    _isCurrentBookmarked = true;
+    notifyListeners();
+  }
+
+  void unbookmarkBook() {
+    _dbManager.deleteBook(_bookDetail.id);
+    _isCurrentBookmarked = false;
+    notifyListeners();
+  }
 
   void clearBookDetail() {
     _bookDetail = GetBookDetailResponse();

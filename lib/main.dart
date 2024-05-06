@@ -1,3 +1,4 @@
+import 'package:bookstash/models/db_manager.dart';
 import 'package:bookstash/view/book_category/screen/book_category_screen.dart';
 import 'package:bookstash/view/book_detail/screen/book_detail_screen.dart';
 import 'package:bookstash/view/root/root_screen.dart';
@@ -21,6 +22,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => BookCategoryViewModel()),
         ChangeNotifierProvider(create: (_) => BookDetailViewModel()),
         ChangeNotifierProvider(create: (_) => BookSearchViewModel()),
+        ChangeNotifierProvider(create: (_) => DbManager()),
       ],
       child: const MyApp(),
     ),

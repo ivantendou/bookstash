@@ -1,5 +1,6 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/models/db_manager.dart';
 import 'package:bookstash/view/book_detail/widgets/book_information_card_widget.dart';
 import 'package:bookstash/view_model/book_detail_view_model.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +18,13 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<BookDetailViewModel>(context, listen: false).getBookDetail();
-    });
+    context.read<BookDetailViewModel>().getBookDetail();
   }
 
   @override
   Widget build(BuildContext context) {
+    final bookDetailViewModel =
+        Provider.of<BookDetailViewModel>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -46,18 +47,27 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Provider.of<BookDetailViewModel>(context, listen: false)
-                .clearBookDetail();
+            context.read<BookDetailViewModel>().clearBookDetail();
+            context.read<DbManager>().getAllBooks();
             Navigator.pop(context);
           },
         ),
-        actions: const [
-          Icon(Icons.bookmark_border),
-          SizedBox(
-            width: 10,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              final isBookmarked = bookDetailViewModel.isCurrentBookmarked;
+              if (isBookmarked) {
+                bookDetailViewModel.unbookmarkBook();
+              } else {
+                await bookDetailViewModel.bookmarkBook();
+              }
+            },
+            icon: Icon(bookDetailViewModel.isCurrentBookmarked
+                ? Icons.bookmark
+                : Icons.bookmark_border),
           ),
-          Icon(Icons.share),
-          SizedBox(
+          const Icon(Icons.share),
+          const SizedBox(
             width: 10,
           ),
         ],
@@ -168,6 +178,13 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           ),
         ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     bookDetailViewModel.
+      //   },
+      //   backgroundColor: ColorConstant.teal,
+      //   child: Icon(Icons.bookmark_border, color: ColorConstant.sageGreen),
+      // ),
     );
   }
 }
