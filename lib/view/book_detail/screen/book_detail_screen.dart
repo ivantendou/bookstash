@@ -18,7 +18,10 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<BookDetailViewModel>().getBookDetail();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<BookDetailViewModel>().getBookDetail();
+    });
+    
   }
 
   @override

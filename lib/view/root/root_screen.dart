@@ -1,4 +1,5 @@
 import 'package:bookstash/view/bookmark/screen/bookmark_screen.dart';
+import 'package:bookstash/view/book_recommendation/screen/book_recommendation_screen.dart';
 import 'package:bookstash/view/home/screen/home_screen.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class _RootScreenState extends State<RootScreen> {
   static final List<Widget> _widgetOptions = [
     const HomeScreen(),
     const BookmarkScreen(),
+    const BookRecommendationScreen(),
   ];
 
   @override
@@ -83,6 +85,10 @@ class _RootScreenState extends State<RootScreen> {
             GButton(
               icon: Icons.bookmark,
               text: 'Bookmark',
+            ),
+            GButton(
+              icon: Icons.computer,
+              text: 'Recommendation',
             ),
           ],
           selectedIndex: _selectedIndex,

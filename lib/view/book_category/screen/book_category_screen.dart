@@ -20,8 +20,10 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
   @override
   void initState() {
     super.initState();
-    scrollController.addListener(_scrollListener);
-    Provider.of<BookCategoryViewModel>(context, listen: false).getBooks();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      scrollController.addListener(_scrollListener);
+      Provider.of<BookCategoryViewModel>(context, listen: false).getBooks();
+    });
   }
 
   @override
