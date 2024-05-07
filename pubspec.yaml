@@ -44,6 +44,9 @@ dependencies:
   infinite_scroll_pagination: ^4.0.0
   sqflite: ^2.0.2
   envied: ^0.5.4+1
+  flutter_gemini: ^2.0.3
+  flutter_markdown: ^0.6.20
+  
   
 
 dev_dependencies:

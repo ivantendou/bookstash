@@ -17,9 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<HomeViewModel>().getLatestFictionBooks();
-    context.read<HomeViewModel>().getLatestHistoryBooks();
-    context.read<HomeViewModel>().getLatestProgrammingBooks();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HomeViewModel>().getLatestFictionBooks();
+      context.read<HomeViewModel>().getLatestHistoryBooks();
+      context.read<HomeViewModel>().getLatestProgrammingBooks();
+    });
   }
 
   @override

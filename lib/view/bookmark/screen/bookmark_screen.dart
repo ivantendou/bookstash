@@ -16,7 +16,10 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<DbManager>().getAllBooks();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<DbManager>().getAllBooks();
+    });
+    
   }
 
   @override
