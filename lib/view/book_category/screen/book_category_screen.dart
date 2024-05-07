@@ -20,17 +20,16 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
   @override
   void initState() {
     super.initState();
-    scrollController.addListener(_scrollListener);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      scrollController.addListener(_scrollListener);
       Provider.of<BookCategoryViewModel>(context, listen: false).getBooks();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final categoryName =
-        Provider.of<BookCategoryViewModel>(context, listen: false)
-            .selectedCategory;
+    final categoryName = context.read<BookCategoryViewModel>().selectedCategory;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -52,8 +51,7 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Provider.of<BookCategoryViewModel>(context, listen: false)
-                .clearBook();
+            context.read<BookCategoryViewModel>().clearBook();
             Navigator.pop(context);
           },
         ),
@@ -67,18 +65,18 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
                   ? viewModel.books.length + 1
                   : viewModel.books.length,
               shrinkWrap: true,
-              padding:
-                  const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 50),
+              padding: const EdgeInsets.only(
+                  top: 16, left: 16, right: 16, bottom: 50),
               itemBuilder: (context, index) {
                 if (index < viewModel.books.length) {
-                  final books = viewModel.books[index];
+                  final book = viewModel.books[index];
                   return Center(
                     child: HorizontalBookCardWidget(
-                      id: books.id,
+                      id: book.id,
                       imageUrl:
-                          books.volumeInfo?.imageLinks?.thumbnail?.toString(),
-                      title: books.volumeInfo?.title,
-                      authors: books.volumeInfo?.authors?.join(', '),
+                          book.volumeInfo?.imageLinks?.thumbnail?.toString(),
+                      title: book.volumeInfo?.title,
+                      authors: book.volumeInfo?.authors?.join(', '),
                     ),
                   );
                 } else {
@@ -97,10 +95,10 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
   }
 
   void _scrollListener() {
-    final viewModel =
-        Provider.of<BookCategoryViewModel>(context, listen: false);
     final maxScrollExtent = scrollController.position.maxScrollExtent;
     final pixels = scrollController.position.pixels;
-    viewModel.handleScrollEvent(pixels, maxScrollExtent);
+    context
+        .read<BookCategoryViewModel>()
+        .handleScrollEvent(pixels, maxScrollExtent);
   }
 }

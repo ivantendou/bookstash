@@ -1,3 +1,4 @@
+import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:bookstash/view/book_search/widgets/horizontal_book_card_widget.dart';
 import 'package:bookstash/view/book_search/widgets/search_bar_widget.dart';
 import 'package:bookstash/constants/colors_constant.dart';
@@ -54,8 +55,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
             child: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                Provider.of<BookSearchViewModel>(context, listen: false)
-                    .clearBook();
+                context.read<BookSearchViewModel>().clearBook();
                 Navigator.pop(context);
               },
             ),
@@ -64,43 +64,45 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
         body: Center(
           child: Consumer<BookSearchViewModel>(
             builder: (context, viewModel, child) {
-              if (viewModel.isLoadingMore) {
-                return CircularProgressIndicator(
-                  color: ColorConstant.teal,
-                );
-              } else if (viewModel.books.isEmpty) {
+              if (viewModel.books.isEmpty) {
                 if (_searchController.text.isEmpty) {
-                  return const Column(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.search,
-                        size: 100,
-                        color: Colors.grey,
+                      Image.asset(
+                        'assets/images/search-colored.png',
+                        height: 200,
+                      ),
+                      const SizedBox(
+                        height: 8,
                       ),
                       Text(
                         'Start searching for books',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
+                        style: TextStyleConstant.buttonLabel.copyWith(
+                          color: ColorConstant.tosca,
                         ),
                       ),
                     ],
                   );
+                } else if (viewModel.isLoadingMore) {
+                  return CircularProgressIndicator(
+                    color: ColorConstant.teal,
+                  );
                 } else {
-                  return const Column(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.search_off_outlined,
-                        size: 100,
-                        color: Colors.grey,
+                      Image.asset(
+                        'assets/images/no-result-colored.png',
+                        height: 200,
+                      ),
+                      const SizedBox(
+                        height: 8,
                       ),
                       Text(
                         'No results found',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
+                        style: TextStyleConstant.buttonLabel.copyWith(
+                          color: ColorConstant.tosca,
                         ),
                       ),
                     ],
@@ -117,14 +119,14 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
                       top: 16, left: 16, right: 16, bottom: 50),
                   itemBuilder: (context, index) {
                     if (index < viewModel.books.length) {
-                      final books = viewModel.books[index];
+                      final book = viewModel.books[index];
                       return Center(
                         child: HorizontalBookCardWidget(
-                          id: books.id,
-                          imageUrl: books.volumeInfo?.imageLinks?.thumbnail
+                          id: book.id,
+                          imageUrl: book.volumeInfo?.imageLinks?.thumbnail
                               ?.toString(),
-                          title: books.volumeInfo?.title,
-                          authors: books.volumeInfo?.authors?.join(', '),
+                          title: book.volumeInfo?.title,
+                          authors: book.volumeInfo?.authors?.join(', '),
                         ),
                       );
                     } else {

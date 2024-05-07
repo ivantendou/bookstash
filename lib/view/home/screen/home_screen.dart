@@ -16,15 +16,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<HomeViewModel>(context, listen: false)
-          .getLatestFictionBooks();
-      Provider.of<HomeViewModel>(context, listen: false)
-          .getLatestHistoryBooks();
-      Provider.of<HomeViewModel>(context, listen: false)
-          .getLatestProgrammingBooks();
-    });
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HomeViewModel>().getLatestFictionBooks();
+      context.read<HomeViewModel>().getLatestHistoryBooks();
+      context.read<HomeViewModel>().getLatestProgrammingBooks();
+    });
   }
 
   @override

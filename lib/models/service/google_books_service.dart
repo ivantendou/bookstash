@@ -42,7 +42,6 @@ class GoogleBooksService {
     try {
       final response = await _dio.get(
         'https://www.googleapis.com/books/v1/volumes?q=subject:$subject&startIndex=$startIndex&maxResults=10',
-        // 'https://www.googleapis.com/books/v1/volumes?q=subject:dystopian&startIndex=0&maxResults=10',
       );
       if (response.statusCode == 200) {
         final data = GetBooksResponse.fromJson(response.data);
