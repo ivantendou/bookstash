@@ -51,7 +51,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                     ),
                     Text(
                       textAlign: TextAlign.center,
-                      "You haven't bookmarked any books. Click on bookmark icon in detail books to bookmark the books.",
+                      "You haven't bookmarked any books. Click on bookmark icon in detail books to bookmark a book.",
                       style: TextStyleConstant.buttonLabel.copyWith(
                         color: ColorConstant.tosca,
                       ),
