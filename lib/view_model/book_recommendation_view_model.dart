@@ -19,7 +19,6 @@ class BookRecommendationViewModel extends ChangeNotifier {
       final data =
           await GeminiAiService().getBookRecommendation(genre, language);
       _bookRecommendation = data!;
-      print(data);
     } catch (e) {
       _errorMessage = e.toString();
     } finally {

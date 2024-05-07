@@ -58,7 +58,7 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                   hintText: "Indonesian",
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 24,
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -73,7 +73,6 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                       _languageController.clear();
                     }
                   },
-                  
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
                       ColorConstant.teal,
@@ -81,20 +80,10 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                     foregroundColor: MaterialStateProperty.all<Color>(
                       ColorConstant.sageGreen,
                     ),
-                    
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.search),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Get Recommendation',
-                        style: TextStyleConstant.buttonLabel,
-                      ),
-                    ],
+                  child: Text(
+                    'Get Recommendation',
+                    style: TextStyleConstant.buttonLabel,
                   ),
                 ),
                 const SizedBox(
@@ -104,20 +93,31 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                   builder: (context, viewModel, child) {
                     var answer = viewModel.bookRecommendation;
                     if (viewModel.isLoading) {
-                      return const CircularProgressIndicator();
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 150),
+                        child: CircularProgressIndicator(
+                          color: ColorConstant.teal,
+                        ),
+                      );
                     } else if (viewModel.bookRecommendation.isEmpty) {
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(
-                            Icons.search,
-                            size: 100,
-                            color: Colors.grey,
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Image.asset(
+                            'assets/images/robot-colored.png',
+                            height: 200,
+                          ),
+                          const SizedBox(
+                            height: 8,
                           ),
                           Text(
-                            'Start searching for books',
+                            textAlign: TextAlign.center,
+                            "Hello, I'am Bookstash AI. You can get my recommendation by inserting book's genre and book's language.",
                             style: TextStyleConstant.buttonLabel.copyWith(
-                              color: Colors.grey,
+                              color: ColorConstant.tosca,
                             ),
                           ),
                         ],
@@ -132,15 +132,36 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Markdown(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            data: answer,
-                            styleSheet: MarkdownStyleSheet(
-                              p: TextStyleConstant.body.copyWith(
-                                fontSize: 16,
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/robot-colored.png',
+                                    height: 50,
+                                  ),
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    'Here is my recommendation...',
+                                    style: TextStyleConstant.body
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  )
+                                ],
                               ),
-                            ),
+                              Markdown(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                data: answer,
+                                styleSheet: MarkdownStyleSheet(
+                                  p: TextStyleConstant.body.copyWith(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       );

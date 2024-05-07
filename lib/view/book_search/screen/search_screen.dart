@@ -69,15 +69,17 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.search,
-                        size: 100,
-                        color: Colors.grey,
+                      Image.asset(
+                        'assets/images/search-colored.png',
+                        height: 200,
+                      ),
+                      const SizedBox(
+                        height: 8,
                       ),
                       Text(
                         'Start searching for books',
                         style: TextStyleConstant.buttonLabel.copyWith(
-                          color: Colors.grey,
+                          color: ColorConstant.tosca,
                         ),
                       ),
                     ],
@@ -90,15 +92,17 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.search_off_outlined,
-                        size: 100,
-                        color: Colors.grey,
+                      Image.asset(
+                        'assets/images/no-result-colored.png',
+                        height: 200,
+                      ),
+                      const SizedBox(
+                        height: 8,
                       ),
                       Text(
                         'No results found',
                         style: TextStyleConstant.buttonLabel.copyWith(
-                          color: Colors.grey,
+                          color: ColorConstant.tosca,
                         ),
                       ),
                     ],

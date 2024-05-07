@@ -46,6 +46,7 @@ dependencies:
   envied: ^0.5.4+1
   flutter_gemini: ^2.0.3
   flutter_markdown: ^0.6.20
+  flutter_svg: ^2.0.10+1
   
   
 

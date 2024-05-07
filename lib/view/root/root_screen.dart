@@ -87,7 +87,7 @@ class _RootScreenState extends State<RootScreen> {
               text: 'Bookmark',
             ),
             GButton(
-              icon: Icons.computer,
+              icon: Icons.lightbulb,
               text: 'Recommendation',
             ),
           ],

@@ -24,9 +24,10 @@ class HomeSearchBarWidget extends StatelessWidget {
               const SizedBox(
                 width: 20,
               ),
-              const Icon(
-                Icons.search,
-                size: 30,
+              Image.asset(
+                'assets/images/search.png',
+                height: 24,
+                color: ColorConstant.tosca,
               ),
               const SizedBox(
                 width: 20,
