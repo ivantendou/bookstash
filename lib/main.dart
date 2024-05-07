@@ -18,11 +18,14 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => HomeViewModel()),
-        ChangeNotifierProvider(create: (_) => BookCategoryViewModel()),
-        ChangeNotifierProvider(create: (_) => BookDetailViewModel()),
-        ChangeNotifierProvider(create: (_) => BookSearchViewModel()),
-        ChangeNotifierProvider(create: (_) => DbManager()),
+        ChangeNotifierProvider<HomeViewModel>(create: (_) => HomeViewModel()),
+        ChangeNotifierProvider<BookCategoryViewModel>(
+            create: (_) => BookCategoryViewModel()),
+        ChangeNotifierProvider<BookDetailViewModel>(
+            create: (_) => BookDetailViewModel()),
+        ChangeNotifierProvider<BookSearchViewModel>(
+            create: (_) => BookSearchViewModel()),
+        ChangeNotifierProvider<DbManager>(create: (_) => DbManager()),
       ],
       child: const MyApp(),
     ),
