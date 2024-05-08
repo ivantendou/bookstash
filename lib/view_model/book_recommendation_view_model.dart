@@ -1,4 +1,4 @@
-import 'package:bookstash/models/service/gemini_ai_service.dart';
+import 'package:bookstash/service/api/gemini_ai_service.dart';
 import 'package:flutter/material.dart';
 
 class BookRecommendationViewModel extends ChangeNotifier {

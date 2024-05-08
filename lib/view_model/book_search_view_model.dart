@@ -1,5 +1,5 @@
 import 'package:bookstash/models/get_books_response.dart';
-import 'package:bookstash/models/service/google_books_service.dart';
+import 'package:bookstash/service/api/google_books_service.dart';
 import 'package:flutter/material.dart';
 
 class BookSearchViewModel extends ChangeNotifier {

@@ -1,4 +1,4 @@
-import 'package:bookstash/helper/database_helper.dart';
+import 'package:bookstash/service/database/database_helper.dart';
 import 'package:bookstash/models/book_model.dart';
 import 'package:flutter/material.dart';
 

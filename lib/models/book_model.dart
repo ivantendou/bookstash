@@ -1,4 +1,4 @@
-import 'package:bookstash/helper/database_helper.dart';
+import 'package:bookstash/service/database/database_helper.dart';
 
 class Book {
   final String? id;

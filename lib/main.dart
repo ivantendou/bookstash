@@ -1,5 +1,5 @@
 import 'package:bookstash/constants/gemini_ai.dart';
-import 'package:bookstash/models/db_manager.dart';
+import 'package:bookstash/view_model/db_manager.dart';
 import 'package:bookstash/view/book_category/screen/book_category_screen.dart';
 import 'package:bookstash/view/book_detail/screen/book_detail_screen.dart';
 import 'package:bookstash/view/root/root_screen.dart';

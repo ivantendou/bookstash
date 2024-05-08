@@ -1,6 +1,6 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
-import 'package:bookstash/models/db_manager.dart';
+import 'package:bookstash/view_model/db_manager.dart';
 import 'package:bookstash/view/book_detail/widgets/book_information_card_widget.dart';
 import 'package:bookstash/view_model/book_detail_view_model.dart';
 import 'package:flutter/material.dart';
