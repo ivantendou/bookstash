@@ -5,6 +5,7 @@ import 'package:bookstash/service/api/google_books_service.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 class BookDetailViewModel extends ChangeNotifier {
   late DbManager _dbManager;
@@ -98,5 +99,13 @@ class BookDetailViewModel extends ChangeNotifier {
     _bookDetail = GetBookDetailResponse();
     _description = "";
     notifyListeners();
+  }
+
+  void onShare(BuildContext context) async {
+    var link = _bookDetail.volumeInfo?.infoLink;
+    var title = _bookDetail.volumeInfo?.title;
+    final box = context.findRenderObject() as RenderBox?;
+    await Share.share("Check this amazing book! the title is '$title' ($link)",
+        sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
   }
 }

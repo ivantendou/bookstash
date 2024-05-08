@@ -21,7 +21,6 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<BookDetailViewModel>().getBookDetail();
     });
-    
   }
 
   @override
@@ -69,7 +68,12 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                 ? Icons.bookmark
                 : Icons.bookmark_border),
           ),
-          const Icon(Icons.share),
+          IconButton(
+            onPressed: () {
+              context.read<BookDetailViewModel>().onShare(context);
+            },
+            icon: const Icon(Icons.share),
+          ),
           const SizedBox(
             width: 10,
           ),
