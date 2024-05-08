@@ -1,9 +1,9 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
 import 'package:bookstash/models/db_manager.dart';
-import 'package:bookstash/view/bookmark/widgets/horizontal_book_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:bookstash/view/bookmark/widgets/index.dart';
 
 class BookmarkScreen extends StatefulWidget {
   const BookmarkScreen({super.key});
@@ -35,31 +35,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
         centerTitle: true,
       ),
       body: books.isEmpty
-          ? Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/empty-colored.png',
-                      height: 200,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      textAlign: TextAlign.center,
-                      "You haven't bookmarked any books. Click on bookmark icon in detail books to bookmark a book.",
-                      style: TextStyleConstant.buttonLabel.copyWith(
-                        color: ColorConstant.tosca,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            )
+          ? const EmptyBookmarkWidget()
           : Container(
               margin: const EdgeInsets.only(bottom: 60),
               child: Consumer<DbManager>(

@@ -181,13 +181,6 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     bookDetailViewModel.
-      //   },
-      //   backgroundColor: ColorConstant.teal,
-      //   child: Icon(Icons.bookmark_border, color: ColorConstant.sageGreen),
-      // ),
     );
   }
 }

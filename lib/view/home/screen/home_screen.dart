@@ -1,6 +1,5 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
-import 'package:bookstash/view/home/widgets/programming_books_carousel_widget.dart';
 import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bookstash/view/home/widgets/index.dart';
@@ -44,56 +43,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 .copyWith(fontSize: 28, color: ColorConstant.sageGreen),
           ),
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 8,
               ),
-              const HomeSearchBarWidget(),
-              const SizedBox(
+              HomeSearchBarWidget(),
+              SizedBox(
                 height: 24,
               ),
-              const CategoryCardWidget(),
-              Container(
-                padding: const EdgeInsets.only(top: 20),
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                    )),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextHeaderWidget(headerName: 'New Fiction Books'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    FictionBooksCarouselWidget(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    TextHeaderWidget(headerName: 'New History Books'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    HistoryBooksCarouselWidget(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    TextHeaderWidget(headerName: 'New Programming Books'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ProgrammingBooksCarouselWidget(),
-                    SizedBox(
-                      height: 80,
-                    ),
-                  ],
-                ),
-              ),
+              CategoryCardWidget(),
+              BookshelfWidget(),
             ],
           ),
         ),

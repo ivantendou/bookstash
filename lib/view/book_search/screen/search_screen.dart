@@ -1,10 +1,8 @@
-import 'package:bookstash/constants/text_styles_constant.dart';
-import 'package:bookstash/view/book_search/widgets/horizontal_book_card_widget.dart';
-import 'package:bookstash/view/book_search/widgets/search_bar_widget.dart';
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/view_model/book_search_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:bookstash/view/book_search/widgets/index.dart';
 
 class BookSearchScreen extends StatefulWidget {
   const BookSearchScreen({super.key});
@@ -66,46 +64,18 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
             builder: (context, viewModel, child) {
               if (viewModel.books.isEmpty) {
                 if (_searchController.text.isEmpty) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/search-colored.png',
-                        height: 200,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Start searching for books',
-                        style: TextStyleConstant.buttonLabel.copyWith(
-                          color: ColorConstant.tosca,
-                        ),
-                      ),
-                    ],
+                  return const EmptySearchWidget(
+                    imageAsset: 'assets/images/search-colored.png',
+                    description: 'Start searching for books',
                   );
                 } else if (viewModel.isLoadingMore) {
                   return CircularProgressIndicator(
                     color: ColorConstant.teal,
                   );
                 } else {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/no-result-colored.png',
-                        height: 200,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'No results found',
-                        style: TextStyleConstant.buttonLabel.copyWith(
-                          color: ColorConstant.tosca,
-                        ),
-                      ),
-                    ],
+                  return const EmptySearchWidget(
+                    imageAsset: 'assets/images/no-result-colored.png',
+                    description: 'No results found',
                   );
                 }
               } else {

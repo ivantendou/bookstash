@@ -1,9 +1,8 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
-import 'package:bookstash/view/book_recommendation/widgets/book_recommendation_form_widget.dart';
 import 'package:bookstash/view_model/book_recommendation_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:bookstash/view/book_recommendation/widgets/index.dart';
 import 'package:provider/provider.dart';
 
 class BookRecommendationScreen extends StatefulWidget {
@@ -60,7 +59,7 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                ElevatedButton(
+                GetRecommendationButtonWidget(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       context
@@ -73,18 +72,6 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                       _languageController.clear();
                     }
                   },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      ColorConstant.teal,
-                    ),
-                    foregroundColor: MaterialStateProperty.all<Color>(
-                      ColorConstant.sageGreen,
-                    ),
-                  ),
-                  child: Text(
-                    'Get Recommendation',
-                    style: TextStyleConstant.buttonLabel,
-                  ),
                 ),
                 const SizedBox(
                   height: 24,
@@ -100,71 +87,9 @@ class _BookRecommendationScreen extends State<BookRecommendationScreen> {
                         ),
                       );
                     } else if (viewModel.bookRecommendation.isEmpty) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Image.asset(
-                            'assets/images/robot-colored.png',
-                            height: 200,
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            textAlign: TextAlign.center,
-                            "Hello, I'am Bookstash AI. You can get my recommendation by inserting book's genre and book's language.",
-                            style: TextStyleConstant.buttonLabel.copyWith(
-                              color: ColorConstant.tosca,
-                            ),
-                          ),
-                        ],
-                      );
+                      return const InitialRecommendationWidget();
                     } else {
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: ColorConstant.teal),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(15),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/images/robot-colored.png',
-                                    height: 50,
-                                  ),
-                                  const SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    'Here is my recommendation...',
-                                    style: TextStyleConstant.body
-                                        .copyWith(fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                              Markdown(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                data: answer,
-                                styleSheet: MarkdownStyleSheet(
-                                  p: TextStyleConstant.body.copyWith(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
+                      return RecommendationResultWidget(answer: answer);
                     }
                   },
                 ),
