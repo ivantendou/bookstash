@@ -13,7 +13,7 @@
         </intent>
     </queries>
     <application
-        android:label="bookstash"
+        android:label="Bookstash"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
