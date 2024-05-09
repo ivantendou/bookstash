@@ -70,11 +70,11 @@ class _RootScreenState extends State<RootScreen> {
         ),
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: GNav(
-          tabBorderRadius: 10,
+          tabBorderRadius: 15,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           color: ColorConstant.tosca,
           activeColor: ColorConstant.sageGreen,
-          tabBackgroundColor: Colors.transparent,
+          tabBackgroundColor: ColorConstant.sageGreen.withOpacity(0.1),
           gap: 8,
           padding: const EdgeInsets.all(6),
           tabs: const [

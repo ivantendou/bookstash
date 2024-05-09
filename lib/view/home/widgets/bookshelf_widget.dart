@@ -20,7 +20,10 @@ class BookshelfWidget extends StatelessWidget {
       child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextHeaderWidget(headerName: 'New Fiction Books'),
+          TextHeaderWidget(
+            headerName: 'New Fiction Books',
+            categoryName: 'Fiction',
+          ),
           SizedBox(
             height: 10,
           ),
@@ -28,7 +31,10 @@ class BookshelfWidget extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          TextHeaderWidget(headerName: 'New History Books'),
+          TextHeaderWidget(
+            headerName: 'New History Books',
+            categoryName: 'History',
+          ),
           SizedBox(
             height: 10,
           ),
@@ -36,7 +42,10 @@ class BookshelfWidget extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          TextHeaderWidget(headerName: 'New Programming Books'),
+          TextHeaderWidget(
+            headerName: 'New Programming Books',
+            categoryName: 'Programming',
+          ),
           SizedBox(
             height: 10,
           ),
