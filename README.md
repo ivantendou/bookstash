@@ -3,12 +3,13 @@
 ![GitHub forks](https://img.shields.io/github/forks/ivantendou/bookstash?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/ivantendou/bookstash?style=social)
 
+
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ivantendou/bookstash/blob/main/LICENSE)
 [![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ivantendou/bookstash)
 
 ## About Project
-tambahkan deskripsi project disini
+tambahkan deskripsi project disini.
 
 ## Features
 sebutkan fitur-fitur yang ada di project yang dibuat
