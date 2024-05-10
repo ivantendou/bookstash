@@ -17,43 +17,45 @@ class BookshelfWidget extends StatelessWidget {
             topLeft: Radius.circular(15),
             topRight: Radius.circular(15),
           )),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextHeaderWidget(
-            headerName: 'New Fiction Books',
-            categoryName: 'Fiction',
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          FictionBooksCarouselWidget(),
-          SizedBox(
-            height: 16,
-          ),
-          TextHeaderWidget(
-            headerName: 'New History Books',
-            categoryName: 'History',
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          HistoryBooksCarouselWidget(),
-          SizedBox(
-            height: 16,
-          ),
-          TextHeaderWidget(
-            headerName: 'New Programming Books',
-            categoryName: 'Programming',
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          ProgrammingBooksCarouselWidget(),
-          SizedBox(
-            height: 80,
-          ),
-        ],
+      child: const SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextHeaderWidget(
+              headerName: 'New Fiction Books',
+              categoryName: 'Fiction',
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            FictionBooksCarouselWidget(),
+            SizedBox(
+              height: 16,
+            ),
+            TextHeaderWidget(
+              headerName: 'New History Books',
+              categoryName: 'History',
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            HistoryBooksCarouselWidget(),
+            SizedBox(
+              height: 16,
+            ),
+            TextHeaderWidget(
+              headerName: 'New Programming Books',
+              categoryName: 'Programming',
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ProgrammingBooksCarouselWidget(),
+            SizedBox(
+              height: 80,
+            ),
+          ],
+        ),
       ),
     );
   }
