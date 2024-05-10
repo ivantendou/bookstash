@@ -1,16 +1,36 @@
-# bookstash
+# Bookstash App
+![GitHub stars](https://img.shields.io/github/stars/ivantendou/bookstash?style=social)
+![GitHub forks](https://img.shields.io/github/forks/ivantendou/bookstash?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/ivantendou/bookstash?style=social)
 
-A new Flutter project.
+[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ivantendou/bookstash/blob/main/LICENSE)
+[![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ivantendou/bookstash)
 
-## Getting Started
+## About Project
+tambahkan deskripsi project disini
 
-This project is a starting point for a Flutter application.
+## Features
+sebutkan fitur-fitur yang ada di project yang dibuat
 
-A few resources to get you started if this is your first Flutter project:
+### User
+- feature A
+- feature B
+- feature C
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Admin
+- feature A
+- feature B
+- feature C
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech Stacks
+sebutkan daftar tools dan framework yang digunakan dalam bentuk list seperti ini:
+- tech stack A
+- tech stack B
+- tech stack C
+
+## Sample App Demo
+sertakan link apk yang sudah di-build
+
+## Setup 
+sebutkan cara menggunakan project ini di lokal
