@@ -7,7 +7,7 @@
 [![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ivantendou/bookstash)
 
-# 📚 About Bookstash
+## 📚 About Bookstash
 Welcome to **Bookstash**, where the world of books unfolds at your fingertips! 🌟 Bookstash is not just another book app; it's your gateway to a universe of literary wonders. Harnessing the power of the Google Books API, Bookstash empowers users to explore a treasure trove of book information, bookmark their favorites, dive into detailed book insights, and even enjoy personalized recommendations powered by AI! 🤖📖
 
 Dive into the realms of knowledge, discover new literary gems, and embark on an adventure through the pages of your favorite books with Bookstash! 🚀
