@@ -33,5 +33,5 @@ sebutkan daftar tools dan framework yang digunakan dalam bentuk list seperti ini
 ## Sample App Demo
 sertakan link apk yang sudah di-build
 
-## Setup 
+## :hammer: Build it yourself 
 sebutkan cara menggunakan project ini di lokal
