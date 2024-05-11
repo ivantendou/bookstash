@@ -49,7 +49,6 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            context.read<BookDetailViewModel>().clearBookDetail();
             context.read<DbManager>().getAllBooks();
             Navigator.pop(context);
           },
