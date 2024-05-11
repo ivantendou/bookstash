@@ -41,6 +41,8 @@ class BookDetailViewModel extends ChangeNotifier {
   String? get description => _description;
 
   void getBookDetail() async {
+    _bookDetail = GetBookDetailResponse();
+    _description = "";
     _isLoading = true;
     _isError = false;
     _errorMessage = null;
@@ -92,12 +94,6 @@ class BookDetailViewModel extends ChangeNotifier {
   void unbookmarkBook() {
     _dbManager.deleteBook(_bookDetail.id);
     _isCurrentBookmarked = false;
-    notifyListeners();
-  }
-
-  void clearBookDetail() {
-    _bookDetail = GetBookDetailResponse();
-    _description = "";
     notifyListeners();
   }
 

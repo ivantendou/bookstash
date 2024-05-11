@@ -41,7 +41,6 @@ dependencies:
   provider: ^6.1.2
   shimmer: ^3.0.0
   html: ^0.15.4
-  infinite_scroll_pagination: ^4.0.0
   sqflite: ^2.0.2
   envied: ^0.5.4+1
   flutter_gemini: ^2.0.3
