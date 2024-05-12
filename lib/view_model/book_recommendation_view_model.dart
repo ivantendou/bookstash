@@ -9,7 +9,7 @@ class BookRecommendationViewModel extends ChangeNotifier {
   String get bookRecommendation => _bookRecommendation;
 
   String? _errorMessage;
-  String? get errorMovie => _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   void getBookRecommendation(String genre, String language) async {
     _isLoading = true;
@@ -21,6 +21,7 @@ class BookRecommendationViewModel extends ChangeNotifier {
       _bookRecommendation = data!;
     } catch (e) {
       _errorMessage = e.toString();
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();

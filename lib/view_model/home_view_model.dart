@@ -11,7 +11,7 @@ class HomeViewModel extends ChangeNotifier {
   bool get isError => _isError;
 
   String? _errorMessage;
-  String? get errorMovie => _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   List<Item> _fictionBooksList = [];
   List<Item> get fictionBooksList => _fictionBooksList;
@@ -36,6 +36,7 @@ class HomeViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -57,6 +58,7 @@ class HomeViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -77,6 +79,7 @@ class HomeViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();

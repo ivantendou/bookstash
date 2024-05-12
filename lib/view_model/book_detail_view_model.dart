@@ -32,7 +32,7 @@ class BookDetailViewModel extends ChangeNotifier {
   bool get isCurrentBookmarked => _isCurrentBookmarked;
 
   String? _errorMessage;
-  String? get errorMovie => _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   GetBookDetailResponse _bookDetail = GetBookDetailResponse();
   GetBookDetailResponse get bookDetail => _bookDetail;
@@ -57,6 +57,7 @@ class BookDetailViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();
