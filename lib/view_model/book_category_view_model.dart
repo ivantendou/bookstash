@@ -12,7 +12,7 @@ class BookCategoryViewModel extends ChangeNotifier {
   }
 
   String? _errorMessage;
-  String? get errorMovie => _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   bool _isLoadingMore = false;
   bool get isLoadingMore => _isLoadingMore;
@@ -32,6 +32,7 @@ class BookCategoryViewModel extends ChangeNotifier {
 
   void getBooks() async {
     _isLoadingMore = true;
+    _errorMessage = null;
     notifyListeners();
     try {
       final data = await GoogleBooksService()
@@ -39,7 +40,9 @@ class BookCategoryViewModel extends ChangeNotifier {
       _books = _books + data.items;
       notifyListeners();
     } catch (e) {
-      _errorMessage = e.toString();
+      _errorMessage =
+          "Failed to get books data, check your internet connection";
+      notifyListeners();
     } finally {
       _isLoadingMore = false;
       notifyListeners();

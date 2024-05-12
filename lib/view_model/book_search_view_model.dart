@@ -33,6 +33,7 @@ class BookSearchViewModel extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       _errorMessage = e.toString();
+      notifyListeners();
     } finally {
       _isLoadingMore = false;
       notifyListeners();

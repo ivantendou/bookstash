@@ -1,5 +1,6 @@
 import 'package:bookstash/constants/colors_constant.dart';
 import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/view/book_category/widgets/error_state_widget.dart';
 import 'package:bookstash/view/book_category/widgets/horizontal_book_card_widget.dart';
 import 'package:bookstash/view_model/book_category_view_model.dart';
 import 'package:flutter/material.dart';
@@ -59,35 +60,40 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
       body: Center(
         child: Consumer<BookCategoryViewModel>(
           builder: (context, viewModel, child) {
-            return ListView.builder(
-              controller: scrollController,
-              itemCount: viewModel.isLoadingMore
-                  ? viewModel.books.length + 1
-                  : viewModel.books.length,
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(
-                  top: 16, left: 16, right: 16, bottom: 50),
-              itemBuilder: (context, index) {
-                if (index < viewModel.books.length) {
-                  final book = viewModel.books[index];
-                  return Center(
-                    child: HorizontalBookCardWidget(
-                      id: book.id,
-                      imageUrl:
-                          book.volumeInfo?.imageLinks?.thumbnail?.toString(),
-                      title: book.volumeInfo?.title,
-                      authors: book.volumeInfo?.authors?.join(', '),
-                    ),
+            return viewModel.errorMessage != null
+                ? ErrorStateWidget(
+                    imageAsset: 'assets/images/no-internet.png',
+                    description: viewModel.errorMessage!,
+                  )
+                : ListView.builder(
+                    controller: scrollController,
+                    itemCount: viewModel.isLoadingMore
+                        ? viewModel.books.length + 1
+                        : viewModel.books.length,
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(
+                        top: 16, left: 16, right: 16, bottom: 50),
+                    itemBuilder: (context, index) {
+                      if (index < viewModel.books.length) {
+                        final book = viewModel.books[index];
+                        return Center(
+                          child: HorizontalBookCardWidget(
+                            id: book.id,
+                            imageUrl: book.volumeInfo?.imageLinks?.thumbnail
+                                ?.toString(),
+                            title: book.volumeInfo?.title,
+                            authors: book.volumeInfo?.authors?.join(', '),
+                          ),
+                        );
+                      } else {
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: ColorConstant.teal,
+                          ),
+                        );
+                      }
+                    },
                   );
-                } else {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      color: ColorConstant.teal,
-                    ),
-                  );
-                }
-              },
-            );
           },
         ),
       ),

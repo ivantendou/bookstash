@@ -21,6 +21,7 @@ class BookRecommendationViewModel extends ChangeNotifier {
       _bookRecommendation = data!;
     } catch (e) {
       _errorMessage = e.toString();
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();

@@ -36,6 +36,7 @@ class HomeViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -57,6 +58,7 @@ class HomeViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -77,6 +79,7 @@ class HomeViewModel extends ChangeNotifier {
     } catch (e) {
       _errorMessage = e.toString();
       _isError = true;
+      notifyListeners();
     } finally {
       _isLoading = false;
       notifyListeners();
