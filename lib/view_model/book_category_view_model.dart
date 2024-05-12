@@ -25,7 +25,7 @@ class BookCategoryViewModel extends ChangeNotifier {
 
   void handleScrollEvent(double pixels, double maxScrollExtent) {
     if (pixels == maxScrollExtent && !_isLoadingMore) {
-      _startIndex += 11;
+      _startIndex += 10;
       getBooks();
     }
   }
