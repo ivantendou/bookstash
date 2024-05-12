@@ -97,8 +97,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                             baseColor: Colors.grey[300]!,
                             highlightColor: Colors.grey[100]!,
                             child: Container(
-                              width: 160,
-                              height: 220,
+                              width: 180,
+                              height: 290,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white,
@@ -106,8 +106,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                             ),
                           )
                         : Container(
-                            width: 160,
-                            height: 220,
+                            width: 180,
+                            height: 290,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [

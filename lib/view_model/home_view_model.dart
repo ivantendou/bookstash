@@ -11,7 +11,7 @@ class HomeViewModel extends ChangeNotifier {
   bool get isError => _isError;
 
   String? _errorMessage;
-  String? get errorMovie => _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   List<Item> _fictionBooksList = [];
   List<Item> get fictionBooksList => _fictionBooksList;

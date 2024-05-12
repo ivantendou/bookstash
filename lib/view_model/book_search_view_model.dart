@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class BookSearchViewModel extends ChangeNotifier {
   String? _errorMessage;
-  String? get errorMovie => _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   bool _isLoadingMore = false;
   bool get isLoadingMore => _isLoadingMore;
