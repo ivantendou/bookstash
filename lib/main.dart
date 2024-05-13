@@ -1,4 +1,4 @@
-import 'package:bookstash/constants/gemini_ai.dart';
+import 'package:bookstash/constants/gemini_ai_constant.dart';
 import 'package:bookstash/view_model/db_manager.dart';
 import 'package:bookstash/view/book_category/screen/book_category_screen.dart';
 import 'package:bookstash/view/book_detail/screen/book_detail_screen.dart';
@@ -18,7 +18,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
 void main() {
-  Gemini.init(apiKey: GeminiAi.apiKey, enableDebugging: true);
+  Gemini.init(apiKey: GeminiAiConstant.apiKey, enableDebugging: true);
   runApp(
     MultiProvider(
       providers: [
