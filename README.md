@@ -7,6 +7,11 @@
 [![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ivantendou/bookstash)
 
+This project belong to personal mini project on
+**Alterra Academy Flutter Path - Kampus Merdeka Batch 6.**
+
+Star ⭐ the repository if you like what you see😉.
+
 ![Mini Project Alterra](https://github.com/ivantendou/bookstash/assets/70643310/7b71c780-9af8-44fe-99c8-742248d0ca8a)
 
 ## 📚 About Bookstash
