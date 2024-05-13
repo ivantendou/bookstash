@@ -68,7 +68,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
                     imageAsset: 'assets/images/search-colored.png',
                     description: 'Start searching for books',
                   );
-                } else if (viewModel.isLoadingMore) {
+                } else if (viewModel.isLoading) {
                   return CircularProgressIndicator(
                     color: ColorConstant.teal,
                   );
@@ -81,7 +81,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
               } else {
                 return ListView.builder(
                   controller: scrollController,
-                  itemCount: viewModel.isLoadingMore
+                  itemCount: viewModel.isLoading
                       ? viewModel.books.length + 1
                       : viewModel.books.length,
                   shrinkWrap: true,

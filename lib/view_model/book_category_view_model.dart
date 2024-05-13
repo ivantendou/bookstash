@@ -14,8 +14,8 @@ class BookCategoryViewModel extends ChangeNotifier {
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
 
-  bool _isLoadingMore = false;
-  bool get isLoadingMore => _isLoadingMore;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
   List<Item> _books = [];
   List<Item> get books => _books;
@@ -24,14 +24,14 @@ class BookCategoryViewModel extends ChangeNotifier {
   int get startIndex => _startIndex;
 
   void handleScrollEvent(double pixels, double maxScrollExtent) {
-    if (pixels == maxScrollExtent && !_isLoadingMore) {
+    if (pixels == maxScrollExtent && !_isLoading) {
       _startIndex += 11;
       getBooks();
     }
   }
 
   void getBooks() async {
-    _isLoadingMore = true;
+    _isLoading = true;
     _errorMessage = null;
     notifyListeners();
     try {
@@ -44,7 +44,7 @@ class BookCategoryViewModel extends ChangeNotifier {
           "Failed to get books data, check your internet connection";
       notifyListeners();
     } finally {
-      _isLoadingMore = false;
+      _isLoading = false;
       notifyListeners();
     }
   }

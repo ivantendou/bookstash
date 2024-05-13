@@ -67,7 +67,7 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
                   )
                 : ListView.builder(
                     controller: scrollController,
-                    itemCount: viewModel.isLoadingMore
+                    itemCount: viewModel.isLoading
                         ? viewModel.books.length + 1
                         : viewModel.books.length,
                     shrinkWrap: true,

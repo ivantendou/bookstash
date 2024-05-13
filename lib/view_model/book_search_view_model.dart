@@ -6,8 +6,8 @@ class BookSearchViewModel extends ChangeNotifier {
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
 
-  bool _isLoadingMore = false;
-  bool get isLoadingMore => _isLoadingMore;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
   List<Item> _books = [];
   List<Item> get books => _books;
@@ -16,15 +16,15 @@ class BookSearchViewModel extends ChangeNotifier {
   int get startIndex => _startIndex;
 
   void handleScrollEvent(double pixels, double maxScrollExtent, String query) {
-    if (isLoadingMore) return;
-    if (pixels == maxScrollExtent && !_isLoadingMore) {
+    if (isLoading) return;
+    if (pixels == maxScrollExtent && !_isLoading) {
       _startIndex += 11;
       getBooks(query);
     }
   }
 
   void getBooks(String query) async {
-    _isLoadingMore = true;
+    _isLoading = true;
     notifyListeners();
     try {
       final data = await GoogleBooksService()
@@ -36,7 +36,7 @@ class BookSearchViewModel extends ChangeNotifier {
           "Failed to get books data, check your internet connection";
       notifyListeners();
     } finally {
-      _isLoadingMore = false;
+      _isLoading = false;
       notifyListeners();
     }
   }
