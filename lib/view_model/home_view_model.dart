@@ -34,7 +34,8 @@ class HomeViewModel extends ChangeNotifier {
       _fictionBooksList = data.items;
       notifyListeners();
     } catch (e) {
-      _errorMessage = e.toString();
+      _errorMessage =
+          "Failed to get books data, check your internet connection";
       _isError = true;
       notifyListeners();
     } finally {

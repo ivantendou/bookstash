@@ -20,7 +20,8 @@ class BookRecommendationViewModel extends ChangeNotifier {
           await GeminiAiService().getBookRecommendation(genre, language);
       _bookRecommendation = data!;
     } catch (e) {
-      _errorMessage = e.toString();
+      _errorMessage =
+          "Failed to get books data, check your internet connection";
       notifyListeners();
     } finally {
       _isLoading = false;

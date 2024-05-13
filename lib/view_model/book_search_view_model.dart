@@ -32,7 +32,8 @@ class BookSearchViewModel extends ChangeNotifier {
       _books = _books + data.items;
       notifyListeners();
     } catch (e) {
-      _errorMessage = e.toString();
+      _errorMessage =
+          "Failed to get books data, check your internet connection";
       notifyListeners();
     } finally {
       _isLoadingMore = false;
