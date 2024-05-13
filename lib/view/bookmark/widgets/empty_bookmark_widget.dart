@@ -1,5 +1,6 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class EmptyBookmarkWidget extends StatelessWidget {
@@ -15,7 +16,7 @@ class EmptyBookmarkWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/empty-colored.png',
+              ImageConstant.emptyBookmark,
               height: 200,
             ),
             const SizedBox(

@@ -1,5 +1,5 @@
-import 'package:bookstash/constants/route_paths_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/route_paths_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:bookstash/view_model/book_detail_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

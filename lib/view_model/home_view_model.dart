@@ -1,6 +1,7 @@
 import 'package:bookstash/models/category_model.dart';
 import 'package:bookstash/models/get_books_response.dart';
 import 'package:bookstash/service/api/google_books_service.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
@@ -88,21 +89,21 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   final List<Category> _categories = [
-    Category(name: "Fiction", imageAssets: 'assets/images/fiction.jpg'),
-    Category(name: "Fantasy", imageAssets: 'assets/images/fantasy.jpg'),
-    Category(name: "Mystery", imageAssets: 'assets/images/mystery.jpg'),
-    Category(name: "Romance", imageAssets: 'assets/images/romance.jpg'),
-    Category(name: "Horror", imageAssets: 'assets/images/horror.jpg'),
-    Category(name: "Comedy", imageAssets: 'assets/images/comedy.jpg'),
-    Category(name: "Psychology", imageAssets: 'assets/images/psychology.jpg'),
-    Category(name: "Politics", imageAssets: 'assets/images/politics.jpg'),
-    Category(name: "Biography", imageAssets: 'assets/images/biography.jpg'),
-    Category(name: "Thriller", imageAssets: 'assets/images/thriller.jpg'),
-    Category(name: "Poetry", imageAssets: 'assets/images/poetry.jpg'),
-    Category(name: "History", imageAssets: 'assets/images/history.jpg'),
-    Category(name: "Steampunk", imageAssets: 'assets/images/dystopian.jpg'),
-    Category(name: "Self-Help", imageAssets: 'assets/images/self-help.jpg'),
-    Category(name: "Finance", imageAssets: 'assets/images/finance.jpg'),
+    Category(name: "Fiction", imageAssets: ImageConstant.fictionGenre),
+    Category(name: "Fantasy", imageAssets: ImageConstant.fantasyGenre),
+    Category(name: "Mystery", imageAssets: ImageConstant.mysteryGenre),
+    Category(name: "Romance", imageAssets: ImageConstant.romanceGenre),
+    Category(name: "Horror", imageAssets: ImageConstant.horrorGenre),
+    Category(name: "Comedy", imageAssets: ImageConstant.comedyGenre),
+    Category(name: "Psychology", imageAssets: ImageConstant.psychologyGenre),
+    Category(name: "Politics", imageAssets: ImageConstant.politicsGenre),
+    Category(name: "Biography", imageAssets: ImageConstant.biographyGenre),
+    Category(name: "Thriller", imageAssets: ImageConstant.thrillerGenre),
+    Category(name: "Poetry", imageAssets: ImageConstant.poertyGenre),
+    Category(name: "History", imageAssets: ImageConstant.historyGenre),
+    Category(name: "Steampunk", imageAssets: ImageConstant.steampunkGenre),
+    Category(name: "Self-Help", imageAssets: ImageConstant.selfHelpGenre),
+    Category(name: "Finance", imageAssets: ImageConstant.financeGenre),
   ];
   List<Category> get categories => _categories;
 }

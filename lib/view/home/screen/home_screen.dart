@@ -1,5 +1,6 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bookstash/view/home/widgets/index.dart';
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background.jpg'),
+          image: AssetImage(ImageConstant.background),
           fit: BoxFit.cover,
         ),
       ),

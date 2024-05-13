@@ -1,4 +1,4 @@
-import 'package:bookstash/constants/route_paths_constant.dart';
+import 'package:bookstash/utils/constants/route_paths_constant.dart';
 import 'package:bookstash/view/book_search/screen/search_screen.dart';
 import 'package:bookstash/view_model/book_search_view_model.dart';
 import 'package:flutter/material.dart';

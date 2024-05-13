@@ -1,5 +1,6 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class InitialRecommendationWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class InitialRecommendationWidget extends StatelessWidget {
           height: 30,
         ),
         Image.asset(
-          'assets/images/robot-colored.png',
+          ImageConstant.bookstashRobot,
           height: 200,
         ),
         const SizedBox(

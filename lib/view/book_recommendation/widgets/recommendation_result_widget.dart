@@ -1,5 +1,6 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
@@ -27,7 +28,7 @@ class RecommendationResultWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/robot-colored.png',
+                  ImageConstant.bookstashRobot,
                   height: 50,
                 ),
                 const SizedBox(

@@ -1,7 +1,8 @@
+import 'package:bookstash/utils/constants/image_constant.dart';
 import 'package:bookstash/view/bookmark/screen/bookmark_screen.dart';
 import 'package:bookstash/view/book_recommendation/screen/book_recommendation_screen.dart';
 import 'package:bookstash/view/home/screen/home_screen.dart';
-import 'package:bookstash/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -52,7 +53,7 @@ class _RootScreenState extends State<RootScreen> {
         decoration: BoxDecoration(
           color: Colors.black,
           image: const DecorationImage(
-            image: AssetImage('assets/images/background.jpg'),
+            image: AssetImage(ImageConstant.background),
             fit: BoxFit.cover,
           ),
           boxShadow: [

@@ -1,4 +1,5 @@
-import 'package:bookstash/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
 import 'package:bookstash/view_model/book_search_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +46,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
           ),
           backgroundColor: Colors.transparent,
           flexibleSpace: const Image(
-            image: AssetImage('assets/images/background.jpg'),
+            image: AssetImage(ImageConstant.background),
             fit: BoxFit.cover,
           ),
           leading: Padding(
@@ -65,7 +66,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
               if (viewModel.books.isEmpty) {
                 if (_searchController.text.isEmpty) {
                   return const EmptySearchWidget(
-                    imageAsset: 'assets/images/search-colored.png',
+                    imageAsset: ImageConstant.initialSearch,
                     description: 'Start searching for books',
                   );
                 } else if (viewModel.isLoading) {
@@ -74,7 +75,7 @@ class _BookSearchScreenState extends State<BookSearchScreen> {
                   );
                 } else {
                   return const EmptySearchWidget(
-                    imageAsset: 'assets/images/no-result-colored.png',
+                    imageAsset: ImageConstant.noResultSearch,
                     description: 'No results found',
                   );
                 }

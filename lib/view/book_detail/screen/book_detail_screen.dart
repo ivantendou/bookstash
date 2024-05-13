@@ -1,5 +1,6 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:bookstash/view_model/db_manager.dart';
 import 'package:bookstash/view/book_detail/widgets/book_information_card_widget.dart';
 import 'package:bookstash/view_model/book_detail_view_model.dart';
@@ -38,7 +39,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           ),
         ),
         flexibleSpace: const Image(
-          image: AssetImage('assets/images/background.jpg'),
+          image: AssetImage(ImageConstant.background),
           fit: BoxFit.cover,
         ),
         centerTitle: true,

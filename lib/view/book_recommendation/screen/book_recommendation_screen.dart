@@ -1,5 +1,5 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:bookstash/view_model/book_recommendation_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bookstash/view/book_recommendation/widgets/index.dart';

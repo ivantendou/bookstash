@@ -1,6 +1,7 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/route_paths_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/route_paths_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:flutter/material.dart';
 
 class HomeSearchBarWidget extends StatelessWidget {
@@ -25,7 +26,7 @@ class HomeSearchBarWidget extends StatelessWidget {
                 width: 20,
               ),
               Image.asset(
-                'assets/images/search.png',
+                ImageConstant.searchIcon,
                 height: 24,
                 color: ColorConstant.tosca,
               ),

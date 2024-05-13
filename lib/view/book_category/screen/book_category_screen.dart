@@ -1,5 +1,6 @@
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/text_styles_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/image_constant.dart';
+import 'package:bookstash/utils/constants/text_styles_constant.dart';
 import 'package:bookstash/view/book_category/widgets/error_state_widget.dart';
 import 'package:bookstash/view/book_category/widgets/horizontal_book_card_widget.dart';
 import 'package:bookstash/view_model/book_category_view_model.dart';
@@ -41,7 +42,7 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
         ),
         backgroundColor: Colors.transparent,
         flexibleSpace: const Image(
-          image: AssetImage('assets/images/background.jpg'),
+          image: AssetImage(ImageConstant.background),
           fit: BoxFit.cover,
         ),
         centerTitle: true,
@@ -62,7 +63,7 @@ class _BookCategoryScreenState extends State<BookCategoryScreen> {
           builder: (context, viewModel, child) {
             return viewModel.errorMessage != null
                 ? ErrorStateWidget(
-                    imageAsset: 'assets/images/no-internet.png',
+                    imageAsset: ImageConstant.noInternet,
                     description: viewModel.errorMessage!,
                   )
                 : ListView.builder(

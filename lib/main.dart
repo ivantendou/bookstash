@@ -1,12 +1,12 @@
-import 'package:bookstash/constants/gemini_ai_constant.dart';
+import 'package:bookstash/utils/constants/gemini_ai_constant.dart';
 import 'package:bookstash/view_model/db_manager.dart';
 import 'package:bookstash/view/book_category/screen/book_category_screen.dart';
 import 'package:bookstash/view/book_detail/screen/book_detail_screen.dart';
 import 'package:bookstash/view/root/root_screen.dart';
 import 'package:bookstash/view/book_search/screen/search_screen.dart';
 import 'package:bookstash/view/splash_screen.dart';
-import 'package:bookstash/constants/colors_constant.dart';
-import 'package:bookstash/constants/route_paths_constant.dart';
+import 'package:bookstash/utils/constants/colors_constant.dart';
+import 'package:bookstash/utils/constants/route_paths_constant.dart';
 import 'package:bookstash/view_model/book_recommendation_view_model.dart';
 import 'package:bookstash/view_model/book_category_view_model.dart';
 import 'package:bookstash/view_model/book_detail_view_model.dart';
