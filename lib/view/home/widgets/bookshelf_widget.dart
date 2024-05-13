@@ -1,8 +1,8 @@
-import 'package:bookstash/view/home/widgets/fiction_books_carousel_widget.dart';
-import 'package:bookstash/view/home/widgets/history_books_carousel_widget.dart';
-import 'package:bookstash/view/home/widgets/programming_books_carousel_widget.dart';
+import 'package:bookstash/view/home/widgets/books_carousel_widget.dart';
 import 'package:bookstash/view/home/widgets/text_header_widget.dart';
+import 'package:bookstash/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BookshelfWidget extends StatelessWidget {
   const BookshelfWidget({super.key});
@@ -17,41 +17,65 @@ class BookshelfWidget extends StatelessWidget {
             topLeft: Radius.circular(15),
             topRight: Radius.circular(15),
           )),
-      child: const SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextHeaderWidget(
+            const TextHeaderWidget(
               headerName: 'New Fiction Books',
               categoryName: 'Fiction',
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            FictionBooksCarouselWidget(),
-            SizedBox(
+            Consumer<HomeViewModel>(
+              builder: (context, viewModel, child) {
+                return BooksCarouselWidget(
+                  booksList: viewModel.fictionBooksList,
+                  isLoading: viewModel.isLoading,
+                  isError: viewModel.isError,
+                );
+              },
+            ),
+            const SizedBox(
               height: 16,
             ),
-            TextHeaderWidget(
+            const TextHeaderWidget(
               headerName: 'New History Books',
               categoryName: 'History',
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            HistoryBooksCarouselWidget(),
-            SizedBox(
+            Consumer<HomeViewModel>(
+              builder: (context, viewModel, child) {
+                return BooksCarouselWidget(
+                  booksList: viewModel.historyBooksList,
+                  isLoading: viewModel.isLoading,
+                  isError: viewModel.isError,
+                );
+              },
+            ),
+            const SizedBox(
               height: 16,
             ),
-            TextHeaderWidget(
+            const TextHeaderWidget(
               headerName: 'New Programming Books',
               categoryName: 'Programming',
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            ProgrammingBooksCarouselWidget(),
-            SizedBox(
+            Consumer<HomeViewModel>(
+              builder: (context, viewModel, child) {
+                return BooksCarouselWidget(
+                  booksList: viewModel.programmingBooksList,
+                  isLoading: viewModel.isLoading,
+                  isError: viewModel.isError,
+                );
+              },
+            ),
+            const SizedBox(
               height: 80,
             ),
           ],
