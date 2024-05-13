@@ -59,10 +59,6 @@ Spread the word about great books. Share book info through WhatsApp, email, and 
 | UI Enhancement                     | [Google Nav Bar](https://pub.dev/packages/google_nav_bar), [Shimmer](https://pub.dev/packages/shimmer) |
 
 
-
-## Sample App Demo
-sertakan link apk yang sudah di-build
-
 ## :hammer: Build it yourself
 1. Run the following command:
    ```bash
