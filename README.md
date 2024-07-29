@@ -39,16 +39,11 @@ Spread the word about great books. Share book info through WhatsApp, email, and 
 
 ## Screenshots
 
-| | |
-|:--:|:--:|
-| **Home Screen** | **Book Detail Screen** |
-| ![Screenshot_1722227796](https://github.com/user-attachments/assets/fdd74e6c-8fbc-45c8-ab01-7dff8b5bd692)
- | ![Screenshot_1722227807](https://github.com/user-attachments/assets/d952edb6-fe88-425f-a489-369bb312cf0d)
-  |
-| **Search Book Screen** | **Book Recommendation Screen** |
-| ![Screenshot_1722227838](https://github.com/user-attachments/assets/419d61e3-1bcb-47d8-9951-cd8106a308d1)
- | ![Screenshot_1722227874](https://github.com/user-attachments/assets/e0b9ac93-bbab-4a0f-b2e5-9f155aaf6b4c)
- |
+| **Home Screen** | **Book Detail Screen** | **Search Book Screen** | **Book Recommendation Screen** |
+|:--:|:--:|:--:|:--:|
+| <img src="https://github.com/user-attachments/assets/fdd74e6c-8fbc-45c8-ab01-7dff8b5bd692" alt="Screenshot_1722227796" width="150"/> | <img src="https://github.com/user-attachments/assets/d952edb6-fe88-425f-a489-369bb312cf0d" alt="Screenshot_1722227807" width="150"/> | <img src="https://github.com/user-attachments/assets/419d61e3-1bcb-47d8-9951-cd8106a308d1" alt="Screenshot_1722227838" width="150"/> | <img src="https://github.com/user-attachments/assets/e0b9ac93-bbab-4a0f-b2e5-9f155aaf6b4c" alt="Screenshot_1722227874" width="150"/> |
+
+
 
 ## 🛠️ Tech Stack
 | Feature                             | Package                                                   |
